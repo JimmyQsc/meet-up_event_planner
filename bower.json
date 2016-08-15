@@ -1,0 +1,20 @@
+{
+  "name": "meet-up_event_planner",
+  "description": "a meetup event planner from udacity nanodegree project",
+  "main": "app.js",
+  "authors": [
+    "Jimmy Q"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/JimmyQsc/meet-up_event_planner",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "^1.3.3"
+  }
+}

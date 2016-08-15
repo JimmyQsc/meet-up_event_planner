@@ -1,0 +1,19 @@
+{
+  "name": "meet-up_event_planner",
+  "version": "1.0.0",
+  "description": "a meetup event planner from udacity nanodegree project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jimmy Q",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-sass": "^2.3.2"
+  }
+}
