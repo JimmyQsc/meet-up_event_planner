@@ -11,14 +11,14 @@ var concat = require('gulp-concat');
 
 
 
-gulp.task('default', ['styles', 'lint'], function() {
+gulp.task('default', ['styles'], function() {
     gulp.watch('scss/**/*.scss', ['styles']);
 
-    browserSync.init({
-        server: './'
-    });
+    // browserSync.init({
+    //     server: './'
+    // });
 
-    browserSync.stream();
+    // browserSync.stream();
 });
 
 gulp.task('lint', function(){

@@ -4,13 +4,35 @@
     <meta charset="utf-8">
     <title>Meet-up Event Planer</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/backbone/backbone-min.js"></script>
     <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/backbone/backbone-min.js"></script>
 </head>
 <body>
+    <div class="regist-form">
+        <h2>Create an account</h2>
+        <form id="registration">
+            <label for="name"><span class="label-text">name</span>
+                <input type="text" id="name" placeholder="letters and/or numbers" required autocomplete="name">
+            </label>
+            <label for="email"><span class="label-text">email</span>
+                <input type="email" id="email" placeholder="your email address" required autocomplete="email">
+            </label>
+            <label for="password"><span class="label-text">password</span>
+                <input type="password" id="password" required placeholder="6~16 numbers and letters">
+            </label>
+            <label for="submit">
+                <button type="submit" id="submit">submit</button>
+            </label>
+        </form>
+    </div>
+
+
+<script src="js/app.js"></script>
 
 </body>
 </html>

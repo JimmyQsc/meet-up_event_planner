@@ -363,3 +363,54 @@ textarea {
   /* 1 */
   font: inherit;
   /* 2 */ }
+
+.regist-form {
+  position: absolute;
+  width: 360px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 20px #ccc;
+  left: 50%;
+  top: 50%;
+  margin-left: -180px;
+  margin-top: -200px;
+  text-align: center; }
+  @media screen and (max-width: 400px) {
+    .regist-form {
+      width: 90%;
+      left: 5%;
+      top: 20%;
+      margin: 0; } }
+  .regist-form h2 {
+    margin: 0;
+    padding: 0.6em 0;
+    border-radius: 5px 5px 0 0;
+    text-align: center;
+    font-size: 22px;
+    color: #fff;
+    background: #0376b5; }
+  .regist-form #registration {
+    margin: 1em 0; }
+    .regist-form #registration .label-text {
+      color: #666; }
+    .regist-form #registration input {
+      display: block;
+      width: 80%;
+      line-height: 2em;
+      margin: 0.5em auto;
+      outline: none;
+      border-radius: 3px;
+      border: 1px solid #eee; }
+      .regist-form #registration input:focus {
+        border: 1px solid #0376b5; }
+      .regist-form #registration input:after {
+        position: absolute;
+        display: block;
+        z-index: 99; }
+    .regist-form #registration #submit {
+      margin-top: 1em;
+      background: #0376b5;
+      border-style: none;
+      padding: 0.5em 2em;
+      border-radius: 3px;
+      text-transform: uppercase;
+      color: #fff; }
