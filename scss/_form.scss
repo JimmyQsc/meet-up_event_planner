@@ -1,5 +1,31 @@
-.regist-form {
+input, textarea {
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    &:focus {
+                border: 1px solid $main-color;
+            }
+}
 
+button {
+    background: $main-color;
+    border-style: none;
+    padding: 0.5em 2em;
+    border-radius: 3px;
+    color: white;
+    box-shadow: 1px 1px 10px #999;
+    &:active {
+        background: $button-touch;
+    }
+}
+
+.label-text {
+    color: #666;
+    font-size: 14px;
+}
+
+.regist-form {
+    background: #fff;
     position: absolute;
     width: 360px;
     border-radius: 8px;
@@ -37,30 +63,34 @@
         input {
             display: block;
             width: 80%;
-            line-height: 2em;
+            line-height: 2.2em;
             margin: 0.5em auto;
-            outline: none;
-            border-radius: 3px;
-            border: 1px solid #eee;
-            &:focus {
-                border: 1px solid #0376b5;
-            }
-            &:after {
-                position: absolute;
-                display: block;
-                z-index: 99;
-            }
         }
 
         #submit {
             margin-top: 1em;
-            background: #0376b5;
-            border-style: none;
-            padding: 0.5em 2em;
-            border-radius: 3px;
             text-transform: uppercase;
-            color: #fff;
         }
     }
 }
 
+.add-event-form {
+    width: 100%;
+
+    h2 {
+        margin: 0;
+        padding: 0.5em 0;
+    }
+    input, textarea {
+        width: 80%;
+        line-height: 1.8em;
+        margin: 0.2em 10%;
+    }
+
+    #add {
+        width: 60%;
+        margin: 1em 20%;
+    }
+
+
+}

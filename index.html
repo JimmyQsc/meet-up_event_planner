@@ -13,6 +13,12 @@
     <script src="bower_components/backbone/backbone-min.js"></script>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1 class="app-title">Event Planner</h1>
+        </div>
+    </header>
+
     <div class="regist-form">
         <h2>Create an account</h2>
         <form id="registration">
@@ -30,6 +36,49 @@
             </label>
         </form>
     </div>
+
+    <section class="event-form container">
+        <div class="add-event-form">
+            <h2>Add event</h2>
+            <form id="add-event">
+                <label for="event-name"><span class="label-text">Event name:</span>
+                    <input type="text" id="event-name" placeholder="Event Name" required>
+                </label>
+                <label for="event-type"><span class="label-text">Event type:</span>
+                    <input list="event-list" placeholder="Event Type" id="event-type">
+                    <datalist id="event-list">
+                        <option value="Party"></option>
+                        <option value="Meeting"></option>
+                        <option value="Soprt"></option>
+                    </datalist>
+                </label>
+                <label for="event-host"><span class="label-text">Host:</span>
+                    <input type="text" id="event-host" placeholder="Host">
+                </label>
+                <label for="start-time"><span class="label-text">Start time:</span>
+                    <input type="datetime-local" id="start-time" required>
+                </label>
+                <label for="end-time"><span class="label-text">End time:</span>
+                    <input type="datetime-local" id="end-time" required>
+                </label>
+                <label for="event-location"><span class="label-text">Event location:</span>
+                    <input type="address" id="event-location" required placeholder="Event location">
+                </label>
+                <label for="guest-list"><span class="label-text">Guest list:</span>
+                    <textarea type="textarea" id="guest-list" placeholder="Names Separate by ','">
+                    </textarea>
+                </label>
+                <label for="extra-info"><span class="label-text">Additional info:</span>
+                    <textarea type="textarea" id="gextra-info" placeholder="Additional information ">
+                    </textarea>
+                </label>
+
+                <button id="add">Add</button>
+
+            </form>
+        </div>
+    </section>
+
 
 
 <script src="js/app.js"></script>

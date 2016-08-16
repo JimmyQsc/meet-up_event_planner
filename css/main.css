@@ -364,7 +364,48 @@ textarea {
   font: inherit;
   /* 2 */ }
 
+.container {
+  max-width: 800px;
+  margin: 0 auto; }
+
+header {
+  background: #0376b5;
+  box-shadow: 1px 0 20px #ddd; }
+  header .app-title {
+    margin: 0;
+    padding: 0.8em 0.5em;
+    color: #fff;
+    font-size: 26px; }
+    @media screen and (max-width: 500px) {
+      header .app-title {
+        font-size: 24px; } }
+
+.event-form {
+  padding: 0 1em; }
+
+input, textarea {
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid #eee; }
+  input:focus, textarea:focus {
+    border: 1px solid #0376b5; }
+
+button {
+  background: #0376b5;
+  border-style: none;
+  padding: 0.5em 2em;
+  border-radius: 3px;
+  color: white;
+  box-shadow: 1px 1px 10px #999; }
+  button:active {
+    background: #55a2cc; }
+
+.label-text {
+  color: #666;
+  font-size: 14px; }
+
 .regist-form {
+  background: #fff;
   position: absolute;
   width: 360px;
   border-radius: 8px;
@@ -395,22 +436,21 @@ textarea {
     .regist-form #registration input {
       display: block;
       width: 80%;
-      line-height: 2em;
-      margin: 0.5em auto;
-      outline: none;
-      border-radius: 3px;
-      border: 1px solid #eee; }
-      .regist-form #registration input:focus {
-        border: 1px solid #0376b5; }
-      .regist-form #registration input:after {
-        position: absolute;
-        display: block;
-        z-index: 99; }
+      line-height: 2.2em;
+      margin: 0.5em auto; }
     .regist-form #registration #submit {
       margin-top: 1em;
-      background: #0376b5;
-      border-style: none;
-      padding: 0.5em 2em;
-      border-radius: 3px;
-      text-transform: uppercase;
-      color: #fff; }
+      text-transform: uppercase; }
+
+.add-event-form {
+  width: 100%; }
+  .add-event-form h2 {
+    margin: 0;
+    padding: 0.5em 0; }
+  .add-event-form input, .add-event-form textarea {
+    width: 80%;
+    line-height: 1.8em;
+    margin: 0.2em 10%; }
+  .add-event-form #add {
+    width: 60%;
+    margin: 1em 20%; }

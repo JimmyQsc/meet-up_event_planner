@@ -1,0 +1,23 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+header {
+    background: $main-color;
+    box-shadow: 1px 0 20px #ddd;
+
+    .app-title {
+        margin: 0;
+        padding: 0.8em 0.5em;
+        color: #fff;
+        font-size: 26px;
+        @media screen and (max-width: 500px) {
+            font-size: 24px;
+        }
+    }
+}
+
+.event-form {
+    padding: 0 1em;
+}
