@@ -438,6 +438,15 @@ button {
     font-size: 22px;
     color: #fff;
     background: #0376b5; }
+  .regist-form .close-form {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    padding: 0;
+    margin: 0;
+    box-shadow: none; }
+    .regist-form .close-form:active {
+      background: #0376b5; }
   .regist-form #registration {
     margin: 1em 0; }
     .regist-form #registration .label-text {

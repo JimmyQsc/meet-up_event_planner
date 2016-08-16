@@ -54,8 +54,14 @@ $(function() {
     }
 
     submitBtn.click(validate);
+    //click outside the registration form close the form
+    $('.regist-form').click(function(e) {
+        e.stopPropagation();
+    });
 
-    //$('.regist').hide();
+    $('.regist, .close-form').click(function() {
+        $('.regist').hide();
+    });
 
 }());
 

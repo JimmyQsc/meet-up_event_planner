@@ -53,6 +53,18 @@ button {
         background: #0376b5;
     }
 
+    .close-form {
+        position: absolute;
+        top: 0.5em;
+        right: 0.5em;
+        padding: 0;
+        margin:0;
+        box-shadow: none;
+        &:active {
+        background: $main-color;
+    }
+    }
+
     #registration {
         margin: 1em 0;
 
