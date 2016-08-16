@@ -1,7 +1,7 @@
 input, textarea {
     outline: none;
     border-radius: 3px;
-    border: 1px solid #eee;
+    border: 1px solid #ddd;
     &:focus {
                 border: 1px solid $main-color;
             }
@@ -29,7 +29,7 @@ button {
     position: absolute;
     width: 360px;
     border-radius: 8px;
-    box-shadow: 2px 2px 25px #bbb;
+    box-shadow: 2px 2px 25px #999;
     left: 50%;
     top: 50%;
     margin-left: -180px;
@@ -57,7 +57,7 @@ button {
         position: absolute;
         top: 0.5em;
         right: 0.5em;
-        padding: 0;
+        padding: 0.2em;
         margin:0;
         box-shadow: none;
         &:active {
@@ -70,6 +70,7 @@ button {
 
         .label-text {
             color: #666;
+            font-size: 16px;
         }
 
         input {
@@ -88,15 +89,27 @@ button {
 
 .add-event-form {
     width: 100%;
+    margin-top: 1em;
 
     h2 {
+        font-size: 22px;
         margin: 0;
-        padding: 0.5em 0;
+        padding: 0.5em 0 0;
     }
     input, textarea {
-        width: 80%;
+        width: 90%;
         line-height: 1.8em;
-        margin: 0.2em 10%;
+        margin: 0.2em 5%;
+        @media screen and (min-width: 500px) {
+            width: 88%;
+            margin: 0.3em 6%;
+        }
+    }
+
+    @media screen and (min-width: 500px) {
+        .label-text {
+            padding: 0 2%;
+        }
     }
 
     #add {

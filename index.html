@@ -11,23 +11,31 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore-min.js"></script>
     <script src="bower_components/backbone/backbone-min.js"></script>
+    <script src="bower_components/backbone.localStorage/backbone.localStorage-min.js"></script>
 </head>
 <body>
     <header>
         <div class="container">
             <h1 class="app-title">Event Planner</h1>
+            <div id="user-state">Register</div>
+            <nav>
+                <ul class="navigation">
+                    <li><a class="view-hook current">Add</a></li>
+                    <li><a class="view-hook">My events <span class="event-counter"></span></a></li>
+                </ul>
+            </nav>
         </div>
     </header>
-
+    <!---->
     <div class="regist cover-layer">
         <div class="regist-form">
             <h2>Create an account</h2><button class="close-form">&#215;</button>
             <form id="registration">
                 <label for="name"><span class="label-text">name</span>
-                    <input type="text" id="name" placeholder="letters and/or numbers" required autocomplete="name">
+                    <input type="text" id="name" placeholder="example: " required autocomplete="name">
                 </label>
                 <label for="email"><span class="label-text">email</span>
-                    <input type="email" id="email" placeholder="your email address" required autocomplete="email">
+                    <input type="email" id="email" placeholder="email@domain.com" required autocomplete="email">
                 </label>
                 <label for="password"><span class="label-text">password</span>
                     <input type="password" id="password" required placeholder="6~16 numbers and letters">
@@ -42,7 +50,8 @@
 
     <section class="event-form container">
         <div class="add-event-form">
-            <h2>Add event</h2>
+            <h2>Add an event</h2>
+            <hr>
             <form id="add-event">
                 <label for="event-name"><span class="label-text">Event name:</span>
                     <input type="text" id="event-name" placeholder="Event Name" required>
@@ -83,7 +92,20 @@
     </section>
 
 
+<script type="text/template" id="event-template">
+    <h2><%= name %></h2>
+    <h3><%= type %></h3>
+    <p>time: <br><%= startTime %> - <%= endTime %></p>
+    <p>location: <br><%= location %></p>
+    <p>host: <br><%= host %></p>
+    <p>guest list: <br><%= guestList %></p>
+    <p>description: <br><%= extraInfo %></p>
+</script>
 
+
+<script src="js/models/event.js"></script>
+<script src="js/models/user.js"></script>
+<script src="js/views/event.js"></script>
 <script src="js/app.js"></script>
 
 </body>

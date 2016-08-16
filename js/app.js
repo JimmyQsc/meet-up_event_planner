@@ -1,5 +1,16 @@
 $(function() {
-    //validate user registration form
+    //create a user instance
+    var user = new app.User({id: 1});
+
+    //fetch user data from localstorage
+    user.fetch();
+    //check the user loin state, if no user loged in, display the registration form
+    if (!user.get('login')) {
+        $('.regist').show();
+    }
+
+
+    //cache user registration form
     var form = $('#registration');
     var nameInput = $('#name');
     var emailInput = $('#email');
@@ -13,7 +24,7 @@ $(function() {
 
     //the regular expression for email validate
     var emailRe = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    var alphanumeric = /^[a-z0-9]+$/i;
+    var alphanumeric = /^[a-z0-9\s\.]+$/i;
     var nameValidateMessage = '', emailValidateMessage = '', pwdValidateMessage = '';
 
     function validate() {
@@ -50,15 +61,26 @@ $(function() {
         nameInput[0].setCustomValidity(nameValidateMessage);
         emailInput[0].setCustomValidity(emailValidateMessage);
         pwdInput[0].setCustomValidity(pwdValidateMessage);
+        //after check, reset them to '' to do the next check
         nameValidateMessage = '', emailValidateMessage = '', pwdValidateMessage = '';
     }
-
+    //validate form on click the submit button
     submitBtn.click(validate);
+
+    //save user info on submit and set user login state to true
+    form.submit(function(e) {
+        user.save({
+            userName: name,
+            userEmail: email,
+            userPwd: password,
+            login: true
+        });
+    });
+
     //click outside the registration form close the form
     $('.regist-form').click(function(e) {
         e.stopPropagation();
     });
-
     $('.regist, .close-form').click(function() {
         $('.regist').hide();
     });

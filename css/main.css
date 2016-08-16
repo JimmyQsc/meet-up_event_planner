@@ -374,20 +374,44 @@ textarea {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(37, 35, 38, 0.5);
+  background: rgba(37, 35, 38, 0.6);
   z-index: 99; }
+
+.regist {
+  display: none; }
 
 header {
   background: #0376b5;
-  box-shadow: 1px 0 20px #ddd; }
+  box-shadow: 1px 1px 10px #bbb; }
   header .app-title {
     margin: 0;
-    padding: 0.8em 0.5em;
-    color: #fff;
-    font-size: 26px; }
+    padding: 0.8em 0.2em;
+    color: #073585;
+    font-size: 22px;
+    text-transform: uppercase; }
     @media screen and (max-width: 500px) {
       header .app-title {
-        font-size: 24px; } }
+        font-size: 20px; } }
+  header .navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    header .navigation li {
+      display: inline-block; }
+  header .container {
+    position: relative; }
+  header #user-state {
+    position: absolute;
+    top: 1.2em;
+    right: 1.2em; }
+
+.view-hook {
+  display: block;
+  padding: 0.5em 1em;
+  color: #fff; }
+
+.current {
+  border-bottom: 2px solid #fff; }
 
 .event-form {
   padding: 0 1em; }
@@ -395,7 +419,7 @@ header {
 input, textarea {
   outline: none;
   border-radius: 3px;
-  border: 1px solid #eee; }
+  border: 1px solid #ddd; }
   input:focus, textarea:focus {
     border: 1px solid #0376b5; }
 
@@ -418,7 +442,7 @@ button {
   position: absolute;
   width: 360px;
   border-radius: 8px;
-  box-shadow: 2px 2px 25px #bbb;
+  box-shadow: 2px 2px 25px #999;
   left: 50%;
   top: 50%;
   margin-left: -180px;
@@ -442,7 +466,7 @@ button {
     position: absolute;
     top: 0.5em;
     right: 0.5em;
-    padding: 0;
+    padding: 0.2em;
     margin: 0;
     box-shadow: none; }
     .regist-form .close-form:active {
@@ -450,7 +474,8 @@ button {
   .regist-form #registration {
     margin: 1em 0; }
     .regist-form #registration .label-text {
-      color: #666; }
+      color: #666;
+      font-size: 16px; }
     .regist-form #registration input {
       display: block;
       width: 80%;
@@ -461,14 +486,23 @@ button {
       text-transform: uppercase; }
 
 .add-event-form {
-  width: 100%; }
+  width: 100%;
+  margin-top: 1em; }
   .add-event-form h2 {
+    font-size: 22px;
     margin: 0;
-    padding: 0.5em 0; }
+    padding: 0.5em 0 0; }
   .add-event-form input, .add-event-form textarea {
-    width: 80%;
+    width: 90%;
     line-height: 1.8em;
-    margin: 0.2em 10%; }
+    margin: 0.2em 5%; }
+    @media screen and (min-width: 500px) {
+      .add-event-form input, .add-event-form textarea {
+        width: 88%;
+        margin: 0.3em 6%; } }
+  @media screen and (min-width: 500px) {
+    .add-event-form .label-text {
+      padding: 0 2%; } }
   .add-event-form #add {
     width: 60%;
     margin: 1em 20%; }

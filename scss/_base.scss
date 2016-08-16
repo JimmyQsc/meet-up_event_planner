@@ -9,23 +9,55 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(37, 35, 38,0.5);
+    background: rgba(37, 35, 38,0.6);
     z-index: 99;
+}
+
+.regist {
+    display: none;
 }
 
 header {
     background: $main-color;
-    box-shadow: 1px 0 20px #ddd;
+    box-shadow: 1px 1px 10px #bbb;
 
     .app-title {
         margin: 0;
-        padding: 0.8em 0.5em;
-        color: #fff;
-        font-size: 26px;
+        padding: 0.8em 0.2em;
+        color: #073585;
+        font-size: 22px;
+        text-transform: uppercase;
         @media screen and (max-width: 500px) {
-            font-size: 24px;
+            font-size: 20px;
         }
     }
+
+    .navigation {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            display: inline-block;
+        }
+    }
+    .container {
+        position: relative;
+    }
+    #user-state {
+        position: absolute;
+        top: 1.2em;
+        right: 1.2em;
+    }
+}
+
+.view-hook {
+    display: block;
+    padding:0.5em 1em;
+    color: #fff;
+}
+
+.current {
+    border-bottom: 2px solid #fff;
 }
 
 .event-form {
