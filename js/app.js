@@ -55,7 +55,7 @@ $(function() {
 
     submitBtn.click(validate);
 
-    $('.regist-form').hide();
+    //$('.regist').hide();
 
 }());
 

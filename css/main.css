@@ -368,6 +368,15 @@ textarea {
   max-width: 800px;
   margin: 0 auto; }
 
+.cover-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(37, 35, 38, 0.5);
+  z-index: 99; }
+
 header {
   background: #0376b5;
   box-shadow: 1px 0 20px #ddd; }
@@ -409,7 +418,7 @@ button {
   position: absolute;
   width: 360px;
   border-radius: 8px;
-  box-shadow: 2px 2px 20px #ccc;
+  box-shadow: 2px 2px 25px #bbb;
   left: 50%;
   top: 50%;
   margin-left: -180px;
