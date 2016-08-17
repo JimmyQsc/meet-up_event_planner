@@ -365,7 +365,7 @@ textarea {
   /* 2 */ }
 
 .container {
-  max-width: 800px;
+  max-width: 760px;
   margin: 0 auto; }
 
 .cover-layer {
@@ -400,10 +400,23 @@ header {
       display: inline-block; }
   header .container {
     position: relative; }
-  header #user-state {
+  header .user-state {
     position: absolute;
     top: 1.2em;
     right: 1.2em; }
+    header .user-state .user-menu {
+      display: none;
+      position: absolute;
+      top: 2em;
+      right: 1em; }
+    header .user-state .user-menu.show {
+      display: block; }
+    header .user-state button {
+      padding: 0.3em 0.5em;
+      box-shadow: none; }
+    header .user-state .logout {
+      background: #fff;
+      color: #252627; }
 
 .view-hook {
   display: block;
@@ -462,6 +475,11 @@ button {
     font-size: 22px;
     color: #fff;
     background: #0376b5; }
+  .regist-form p {
+    margin: 0;
+    padding: 0;
+    color: #7091c9;
+    font-style: italic; }
   .regist-form .close-form {
     position: absolute;
     top: 0.5em;

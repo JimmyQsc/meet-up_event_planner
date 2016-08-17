@@ -17,7 +17,11 @@
     <header>
         <div class="container">
             <h1 class="app-title">Event Planner</h1>
-            <div id="user-state">Register</div>
+            <div class="user-state">
+                <button id="user-btn">Register</button>
+                <div class="user-menu">
+                </div>
+            </div>
             <nav>
                 <ul class="navigation">
                     <li><a class="view-hook current">Add</a></li>
@@ -32,7 +36,7 @@
             <h2>Create an account</h2><button class="close-form">&#215;</button>
             <form id="registration">
                 <label for="name"><span class="label-text">name</span>
-                    <input type="text" id="name" placeholder="example: " required autocomplete="name">
+                    <input type="text" id="name" placeholder="example: Jason Bourne" required autocomplete="name">
                 </label>
                 <label for="email"><span class="label-text">email</span>
                     <input type="email" id="email" placeholder="email@domain.com" required autocomplete="email">
@@ -40,6 +44,7 @@
                 <label for="password"><span class="label-text">password</span>
                     <input type="password" id="password" required placeholder="6~16 numbers and letters">
                 </label>
+                <p>You can close this form to skip.</p>
                 <label for="submit">
                     <button type="submit" id="submit">submit</button>
                 </label>
@@ -91,6 +96,10 @@
         </div>
     </section>
 
+<script type="text/template">
+
+</script>
+
 
 <script type="text/template" id="event-template">
     <h2><%= name %></h2>
@@ -105,6 +114,7 @@
 
 <script src="js/models/event.js"></script>
 <script src="js/models/user.js"></script>
+<script src="js/views/user.js"></script>
 <script src="js/views/event.js"></script>
 <script src="js/app.js"></script>
 

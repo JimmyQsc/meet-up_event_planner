@@ -1,5 +1,5 @@
 .container {
-    max-width: 800px;
+    max-width: 760px;
     margin: 0 auto;
 }
 
@@ -43,11 +43,38 @@ header {
     .container {
         position: relative;
     }
-    #user-state {
+    .user-state {
         position: absolute;
-        top: 1.2em;
-        right: 1.2em;
+            top: 1.2em;
+            right: 1.2em;
+        #user-btn {
+
+        }
+        .user-menu {
+            display: none;
+            position: absolute;
+            top: 2em;
+            right: 1em;
+        }
+
+        .user-menu.show {
+            display: block;
+        }
+        button {
+            padding: 0.3em 0.5em;
+            box-shadow: none;
+        }
+        .logout {
+            background: #fff;
+            color: #252627;
+        }
     }
+
+
+
+
+
+
 }
 
 .view-hook {

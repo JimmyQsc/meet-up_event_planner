@@ -1,14 +1,7 @@
 $(function() {
     //create a user instance
     var user = new app.User({id: 1});
-
-    //fetch user data from localstorage
-    user.fetch();
-    //check the user loin state, if no user loged in, display the registration form
-    if (!user.get('login')) {
-        $('.regist').show();
-    }
-
+    new app.UserView({model: user});
 
     //cache user registration form
     var form = $('#registration');
