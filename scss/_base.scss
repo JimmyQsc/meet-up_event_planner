@@ -52,23 +52,22 @@ header {
             display: none;
         }
 
-        #user {
-            #logout {
-                display: none;
-            }
-
-            #logout.show {
-                display: block;
-            }
-        }
-
         button {
             padding: 0.3em 0.5em;
             box-shadow: none;
             background: #fff;
             color: #262829;
             width: 6em;
-            margin-bottom: 2px;
+        }
+        span {
+            padding: 0.3em 0.5em;
+            box-shadow: none;
+            background: $main-color;
+            color: #262829;
+            width: 6em;
+            color: white;
+            border: 2px solid #fece00;
+            border-radius: 15px;
         }
     }
 

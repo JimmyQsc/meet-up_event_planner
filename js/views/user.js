@@ -6,8 +6,7 @@ app.UserView = Backbone.View.extend({
     template: _.template($('#user-template').html()),
 
     events: {
-        'click #show-user-action': 'showAction',
-        'click #logout': 'logout'
+        'click #show-user-action': 'showAction'
     },
 
 
@@ -18,8 +17,6 @@ app.UserView = Backbone.View.extend({
 
         this.listenTo(this.model, 'change', this.render);
         //remove the dom element
-        this.listenTo(this.model, 'destroy', this.remove);
-
         this.listenTo(this.model, 'register', this.showRegist);
         //fetch data from localstorage
         this.model.fetch();
@@ -38,14 +35,5 @@ app.UserView = Backbone.View.extend({
 
     showRegist: function() {
         this.render();
-    },
-
-    showAction: function() {
-        $('#logout').toggleClass('show');
-    },
-
-    logout: function() {
-        this.model.toggleLogin();
-        this.remove();
     }
 });

@@ -406,17 +406,21 @@ header {
     right: 1.2em; }
     header .user-state #regist-btn {
       display: none; }
-    header .user-state #user #logout {
-      display: none; }
-    header .user-state #user #logout.show {
-      display: block; }
     header .user-state button {
       padding: 0.3em 0.5em;
       box-shadow: none;
       background: #fff;
       color: #262829;
+      width: 6em; }
+    header .user-state span {
+      padding: 0.3em 0.5em;
+      box-shadow: none;
+      background: #0376b5;
+      color: #262829;
       width: 6em;
-      margin-bottom: 2px; }
+      color: white;
+      border: 2px solid #fece00;
+      border-radius: 15px; }
 
 .view-hook {
   display: block;
