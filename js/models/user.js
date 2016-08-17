@@ -10,7 +10,7 @@ app.User = Backbone.Model.extend({
     //saving user info to local storage
     localStorage: new Backbone.LocalStorage('user'),
 
-    login: function() {
+    toggleLogin: function() {
         this.save({
             login: !this.get('login')
         });

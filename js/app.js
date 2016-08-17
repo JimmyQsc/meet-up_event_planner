@@ -1,4 +1,4 @@
-$(function() {
+//$(function() {
     //create a user instance
     var user = new app.User({id: 1});
     new app.UserView({model: user});
@@ -9,6 +9,8 @@ $(function() {
     var emailInput = $('#email');
     var pwdInput = $('#password');
     var submitBtn = $('#submit');
+
+    var registBtn = $('#regist-btn');
 
     //store input values
     var name;
@@ -57,8 +59,14 @@ $(function() {
         //after check, reset them to '' to do the next check
         nameValidateMessage = '', emailValidateMessage = '', pwdValidateMessage = '';
     }
+
     //validate form on click the submit button
     submitBtn.click(validate);
+
+    //if user clicks the regist button, the trigger the user event 'register'
+    registBtn.click(function() {
+        user.trigger('register');
+    });
 
     //save user info on submit and set user login state to true
     form.submit(function(e) {
@@ -74,11 +82,12 @@ $(function() {
     $('.regist-form').click(function(e) {
         e.stopPropagation();
     });
+
     $('.regist, .close-form').click(function() {
         $('.regist').hide();
     });
 
-}());
+//}());
 
 
 

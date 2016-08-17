@@ -18,8 +18,12 @@
         <div class="container">
             <h1 class="app-title">Event Planner</h1>
             <div class="user-state">
-                <button id="user-btn">Register</button>
-                <div class="user-menu">
+                <button id="regist-btn">Register</button>
+                <div id="user">
+                    <!-- <button>user.name</button>
+                    <div class="user-action">
+                        <button id="logout">logout</button>
+                    </div> -->
                 </div>
             </div>
             <nav>
@@ -30,7 +34,7 @@
             </nav>
         </div>
     </header>
-    <!---->
+    <!--Registration form-->
     <div class="regist cover-layer">
         <div class="regist-form">
             <h2>Create an account</h2><button class="close-form">&#215;</button>
@@ -52,7 +56,7 @@
         </div>
     </div>
 
-
+    <!--Form for create an event-->
     <section class="event-form container">
         <div class="add-event-form">
             <h2>Add an event</h2>
@@ -96,8 +100,11 @@
         </div>
     </section>
 
-<script type="text/template">
-
+<script type="text/template" id="user-template">
+    <button id="show-user-action"><%= name %></button>
+    <div class="user-action">
+        <button id="logout">logout</button>
+    </div>
 </script>
 
 

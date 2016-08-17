@@ -1,45 +1,51 @@
 var app = app || {};
 
 app.UserView = Backbone.View.extend({
-
-    el: '.user-state',
+    el: '#user',
+    //template for the user
+    template: _.template($('#user-template').html()),
 
     events: {
-        'click #user-btn': 'showMenu',
-        'click .user-menu': 'logout'
+        'click #show-user-action': 'showAction',
+        'click #logout': 'logout'
     },
 
 
     initialize: function() {
         this.form = $('.regist');
-        this.$userBtn = $('#user-btn');
-        this.$userMenu = $('.user-menu');
+        this.registBtn = $('#regist-btn');
+        this.container = $('.user-state');
 
         this.listenTo(this.model, 'change', this.render);
+        //remove the dom element
+        this.listenTo(this.model, 'destroy', this.remove);
 
+        this.listenTo(this.model, 'register', this.showRegist);
+        //fetch data from localstorage
         this.model.fetch();
-
+        //render the view for the first time
         this.render();
     },
 
     render: function() {
         if (!this.model.get('login')) {
             this.form.show();
-            this.$userBtn.html('Register');
+            this.registBtn.show();
         } else {
-            this.$userBtn.html(this.model.get('userName'));
-            this.$userMenu.html('<button class="logout">logout</button>');
+            this.$el.html(this.template({name: this.model.get('userName')}));
         }
     },
 
-    showMenu: function() {
+    showRegist: function() {
         this.render();
-        this.$userMenu.toggleClass('show');
+    },
+
+    showAction: function() {
+        $('#logout').toggleClass('show');
     },
 
     logout: function() {
-        this.model.destroy();
-        this.render();
+        this.model.toggleLogin();
+        this.remove();
     }
-
 });

@@ -47,33 +47,30 @@ header {
         position: absolute;
             top: 1.2em;
             right: 1.2em;
-        #user-btn {
 
-        }
-        .user-menu {
+        #regist-btn {
             display: none;
-            position: absolute;
-            top: 2em;
-            right: 1em;
         }
 
-        .user-menu.show {
-            display: block;
+        #user {
+            #logout {
+                display: none;
+            }
+
+            #logout.show {
+                display: block;
+            }
         }
+
         button {
             padding: 0.3em 0.5em;
             box-shadow: none;
-        }
-        .logout {
             background: #fff;
-            color: #252627;
+            color: #262829;
+            width: 6em;
+            margin-bottom: 2px;
         }
     }
-
-
-
-
-
 
 }
 

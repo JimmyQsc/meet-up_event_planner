@@ -404,19 +404,19 @@ header {
     position: absolute;
     top: 1.2em;
     right: 1.2em; }
-    header .user-state .user-menu {
-      display: none;
-      position: absolute;
-      top: 2em;
-      right: 1em; }
-    header .user-state .user-menu.show {
+    header .user-state #regist-btn {
+      display: none; }
+    header .user-state #user #logout {
+      display: none; }
+    header .user-state #user #logout.show {
       display: block; }
     header .user-state button {
       padding: 0.3em 0.5em;
-      box-shadow: none; }
-    header .user-state .logout {
+      box-shadow: none;
       background: #fff;
-      color: #252627; }
+      color: #262829;
+      width: 6em;
+      margin-bottom: 2px; }
 
 .view-hook {
   display: block;
