@@ -1,10 +1,12 @@
 var app = app || {};
 
-app.Events = Backbone.Collection.extend({
+app.EventsCollection = Backbone.Collection.extend({
     //reference to its model
     model: app.Event,
 
-    localStorage: new Backbone.LocalStorage('events');
+    localStorage: new Backbone.LocalStorage('events'),
 
 
 });
+
+app.events = new app.EventsCollection();

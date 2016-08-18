@@ -5,7 +5,7 @@ app.EventView = Backbone.View.extend({
 
     className: 'event',
     //template to render a event
-    eventTpl: _.template($('#event-template').html()),
+    template: _.template($('#event-template').html()),
 
     //listen to model event in initialization
     intialize: function() {
@@ -13,7 +13,7 @@ app.EventView = Backbone.View.extend({
     },
 
     render: function() {
-        this.$el.html(this.eventTpl(this.model.attributes));
+        this.$el.html(this.template(this.model.attributes));
         return this;
     }
 });

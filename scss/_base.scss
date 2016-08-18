@@ -1,6 +1,8 @@
+
 .container {
     max-width: 760px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .cover-layer {
@@ -39,6 +41,19 @@ header {
         li {
             display: inline-block;
         }
+
+        a {
+            display: block;
+            padding:0.5em 1em;
+            color: #fff;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        &:active {
+            background: $button-touch;
+        }
     }
     .container {
         position: relative;
@@ -63,21 +78,16 @@ header {
             padding: 0.3em 0.5em;
             box-shadow: none;
             background: $main-color;
-            color: #262829;
             width: 6em;
             color: white;
-            border: 2px solid #fece00;
+            border: 2px solid #fff;
             border-radius: 15px;
         }
     }
 
 }
 
-.view-hook {
-    display: block;
-    padding:0.5em 1em;
-    color: #fff;
-}
+
 
 .current {
     border-bottom: 2px solid #fff;
@@ -85,4 +95,28 @@ header {
 
 .event-form {
     padding: 0 1em;
+}
+
+.planer-app {
+    position: relative;
+    overflow: hidden;
+}
+
+.event-form {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.events-view {
+    position: absolute;
+    top: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    .event-list {
+        padding: 0 1em;
+    }
+}
+
+.open {
+    transform: translateX(0);
 }

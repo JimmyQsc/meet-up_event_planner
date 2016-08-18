@@ -1,8 +1,8 @@
-//$(function() {
+$(function() {
     //create a user instance
     var user = new app.User({id: 1});
-    new app.UserView({model: user});
-
+    new app.RegisterView({model: user});
+    new app.MainView();
     //cache user registration form
     var form = $('#registration');
     var nameInput = $('#name');
@@ -87,7 +87,7 @@
         $('.regist').hide();
     });
 
-//}());
+}());
 
 
 
