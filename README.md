@@ -1,6 +1,6 @@
 # Meet-up event planer - Udacity Senior Web dev project
 
-<img src="https://cloud.githubusercontent.com/assets/16117899/17783512/fc4dd3a8-65aa-11e6-8f2b-0415cb7a9e06.gif" alt="screenshot" height: 400px>
+<img src="https://cloud.githubusercontent.com/assets/16117899/17783512/fc4dd3a8-65aa-11e6-8f2b-0415cb7a9e06.gif" alt="screenshot" height=450px>
 
 ## How to use
 
