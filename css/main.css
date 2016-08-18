@@ -463,11 +463,11 @@ ul {
     float: left;
     border: 2px solid #FECE00;
     box-shadow: 1px 1px 10px #999;
-    margin: 0 2%; }
+    margin: 0 2% 1em; }
     @media screen and (max-width: 400px) {
       .event-list li {
         width: 92%;
-        margin: 0 auto;
+        margin: 0 auto 1em;
         float: none; } }
   .event-list h2 {
     background: #FECE00;

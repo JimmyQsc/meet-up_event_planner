@@ -55,6 +55,8 @@ app.MainView = Backbone.View.extend({
             location: this.$inputs.guestList.val(),
             extraInfo: this.$inputs.extraInfo.val()
         });
+
+        this.$eventForm.reset();
         //prevent page refresh
         return false;
     }
