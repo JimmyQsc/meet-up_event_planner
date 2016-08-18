@@ -444,19 +444,49 @@ header {
   transition: transform 0.3s ease; }
 
 .events-view {
-  position: relative;
+  float: right;
   width: 100%;
   transform: translateX(100%);
   transition: transform 0.3s ease; }
-  .events-view .event-list {
-    padding: 0;
-    margin: 0; }
 
 .open {
   transform: translateX(0); }
 
 ul {
   list-style: none; }
+
+.event-list {
+  padding: 0;
+  margin: 0; }
+  .event-list li {
+    width: 46%;
+    float: left;
+    border: 2px solid #FECE00;
+    box-shadow: 1px 1px 10px #999;
+    margin: 0 2%; }
+    @media screen and (max-width: 400px) {
+      .event-list li {
+        width: 92%;
+        margin: 0 auto;
+        float: none; } }
+  .event-list h2 {
+    background: #FECE00;
+    margin: 0;
+    padding: 0.5em 1em;
+    color: #fff; }
+  .event-list h3 {
+    color: #999;
+    text-align: right;
+    margin: 0;
+    padding: 0.2em 2em; }
+  .event-list p {
+    margin: 0;
+    font-size: 16px;
+    padding: 0.2em 0.5em; }
+    .event-list p .label {
+      color: #888;
+      font-style: italic;
+      padding-right: 1em; }
 
 input, textarea {
   outline: none;

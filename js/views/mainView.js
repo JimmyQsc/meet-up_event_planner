@@ -32,9 +32,9 @@ app.MainView = Backbone.View.extend({
     },
 
     render: function() {
-        //drag the event list to the right place
+        //drag the events view to the right place
         var height = this.$eventForm[0].offsetHeight;
-        this.$eventsView.css('top', -height);
+        this.$eventsView.css('margin-top', -height);
     },
 
     appendItem: function(event) {
