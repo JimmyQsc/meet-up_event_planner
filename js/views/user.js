@@ -12,6 +12,7 @@ app.RegisterView = Backbone.View.extend({
 
         //remove the dom element
         this.listenTo(this.model, 'register', this.showRegist);
+        this.listenTo(this.model, 'change', this.render);
         //fetch data from localstorage
         this.model.fetch();
         //render the view for the first time
@@ -19,14 +20,17 @@ app.RegisterView = Backbone.View.extend({
     },
 
     render: function() {
+        //if no user loged in open teh register form
         if (!this.model.get('login')) {
             this.form.show();
             this.registBtn.show();
         } else {
+            this.form.hide();
+            this.registBtn.hide();
             this.$el.html(this.template({name: this.model.get('userName')}));
         }
     },
-
+    //show the register form
     showRegist: function() {
         this.render();
     }

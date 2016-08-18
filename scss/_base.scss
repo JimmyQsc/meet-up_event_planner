@@ -22,72 +22,68 @@
 header {
     background: $main-color;
     box-shadow: 1px 1px 10px #bbb;
+}
 
-    .app-title {
-        margin: 0;
-        padding: 0.8em 0.2em;
-        color: #073585;
-        font-size: 22px;
-        text-transform: uppercase;
-        @media screen and (max-width: 500px) {
-            font-size: 20px;
-        }
+.user-state {
+    position: absolute;
+        top: 1.2em;
+        right: 1.2em;
+
+    #regist-btn {
+        display: none;
     }
 
-    .navigation {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li {
-            display: inline-block;
-        }
+    button {
+        padding: 0.3em 0.5em;
+        box-shadow: none;
+        background: #fff;
+        color: #262829;
+        width: 6em;
+    }
+    span {
+        padding: 0.3em 0.5em;
+        box-shadow: none;
+        background: $main-color;
+        width: 6em;
+        color: white;
+        border: 2px solid #fff;
+        border-radius: 15px;
+    }
+}
 
-        a {
-            display: block;
-            padding:0.5em 1em;
-            color: #fff;
-        }
+.app-title {
+    margin: 0;
+    padding: 0.8em 0.2em;
+    color: #073585;
+    font-size: 22px;
+    text-transform: uppercase;
+    @media screen and (max-width: 500px) {
+        font-size: 20px;
+    }
+}
+
+.navigation {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        display: inline-block;
     }
 
     a {
+        display: block;
+        padding:0.5em 1em;
+        color: #fff;
         text-decoration: none;
         &:active {
             background: $button-touch;
         }
     }
-    .container {
-        position: relative;
-    }
-    .user-state {
-        position: absolute;
-            top: 1.2em;
-            right: 1.2em;
-
-        #regist-btn {
-            display: none;
-        }
-
-        button {
-            padding: 0.3em 0.5em;
-            box-shadow: none;
-            background: #fff;
-            color: #262829;
-            width: 6em;
-        }
-        span {
-            padding: 0.3em 0.5em;
-            box-shadow: none;
-            background: $main-color;
-            width: 6em;
-            color: white;
-            border: 2px solid #fff;
-            border-radius: 15px;
-        }
-    }
-
 }
 
-
+.container {
+    position: relative;
+}
 
 .current {
     border-bottom: 2px solid #fff;
@@ -97,26 +93,26 @@ header {
     padding: 0 1em;
 }
 
-.planer-app {
-    position: relative;
-    overflow: hidden;
-}
-
 .event-form {
     transform: translateX(-100%);
     transition: transform 0.3s ease;
 }
 
 .events-view {
-    position: absolute;
-    top: 0;
+    position: relative;
+    width: 100%;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     .event-list {
-        padding: 0 1em;
+        padding: 0;
+        margin: 0;
     }
 }
 
 .open {
     transform: translateX(0);
+}
+
+ul {
+    list-style: none;
 }

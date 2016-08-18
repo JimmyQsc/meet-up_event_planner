@@ -384,51 +384,54 @@ textarea {
 header {
   background: #0376b5;
   box-shadow: 1px 1px 10px #bbb; }
-  header .app-title {
-    margin: 0;
-    padding: 0.8em 0.2em;
-    color: #073585;
-    font-size: 22px;
-    text-transform: uppercase; }
-    @media screen and (max-width: 500px) {
-      header .app-title {
-        font-size: 20px; } }
-  header .navigation {
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-    header .navigation li {
-      display: inline-block; }
-    header .navigation a {
-      display: block;
-      padding: 0.5em 1em;
-      color: #fff; }
-  header a {
+
+.user-state {
+  position: absolute;
+  top: 1.2em;
+  right: 1.2em; }
+  .user-state #regist-btn {
+    display: none; }
+  .user-state button {
+    padding: 0.3em 0.5em;
+    box-shadow: none;
+    background: #fff;
+    color: #262829;
+    width: 6em; }
+  .user-state span {
+    padding: 0.3em 0.5em;
+    box-shadow: none;
+    background: #0376b5;
+    width: 6em;
+    color: white;
+    border: 2px solid #fff;
+    border-radius: 15px; }
+
+.app-title {
+  margin: 0;
+  padding: 0.8em 0.2em;
+  color: #073585;
+  font-size: 22px;
+  text-transform: uppercase; }
+  @media screen and (max-width: 500px) {
+    .app-title {
+      font-size: 20px; } }
+
+.navigation {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+  .navigation li {
+    display: inline-block; }
+  .navigation a {
+    display: block;
+    padding: 0.5em 1em;
+    color: #fff;
     text-decoration: none; }
-    header a:active {
+    .navigation a:active {
       background: #55a2cc; }
-  header .container {
-    position: relative; }
-  header .user-state {
-    position: absolute;
-    top: 1.2em;
-    right: 1.2em; }
-    header .user-state #regist-btn {
-      display: none; }
-    header .user-state button {
-      padding: 0.3em 0.5em;
-      box-shadow: none;
-      background: #fff;
-      color: #262829;
-      width: 6em; }
-    header .user-state span {
-      padding: 0.3em 0.5em;
-      box-shadow: none;
-      background: #0376b5;
-      width: 6em;
-      color: white;
-      border: 2px solid #fff;
-      border-radius: 15px; }
+
+.container {
+  position: relative; }
 
 .current {
   border-bottom: 2px solid #fff; }
@@ -436,24 +439,24 @@ header {
 .event-form {
   padding: 0 1em; }
 
-.planer-app {
-  position: relative;
-  overflow: hidden; }
-
 .event-form {
   transform: translateX(-100%);
   transition: transform 0.3s ease; }
 
 .events-view {
-  position: absolute;
-  top: 0;
+  position: relative;
+  width: 100%;
   transform: translateX(100%);
   transition: transform 0.3s ease; }
   .events-view .event-list {
-    padding: 0 1em; }
+    padding: 0;
+    margin: 0; }
 
 .open {
   transform: translateX(0); }
+
+ul {
+  list-style: none; }
 
 input, textarea {
   outline: none;

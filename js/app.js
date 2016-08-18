@@ -1,8 +1,12 @@
 $(function() {
     //create a user instance
     var user = new app.User({id: 1});
+    //vreate a user view
     new app.RegisterView({model: user});
+
+    //Instantiate the main view of the app
     new app.MainView();
+
     //cache user registration form
     var form = $('#registration');
     var nameInput = $('#name');
@@ -21,7 +25,7 @@ $(function() {
     var emailRe = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     var alphanumeric = /^[a-z0-9\s\.]+$/i;
     var nameValidateMessage = '', emailValidateMessage = '', pwdValidateMessage = '';
-
+    //the logic to validate register's data
     function validate() {
         name = nameInput.val();
         email = emailInput.val();

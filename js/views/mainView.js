@@ -10,6 +10,8 @@ app.MainView = Backbone.View.extend({
     initialize: function() {
         //cache dom element
         this.$list = $('.event-list');
+        this.$eventsView = $('.events-view');
+        this.$eventForm = $('.event-form');
         this.$inputs = {
             eventName: $('#event-name'),
             eventType: $('#event-type'),
@@ -20,15 +22,19 @@ app.MainView = Backbone.View.extend({
             guestList: $('#guest-list'),
             extraInfo: $('#extra-info')
         };
-        this.$form = $('#add-event');
 
-        app.events.fetch();
+        this.$form = $('#add-event');
         //listen to collection event
         this.listenTo(app.events, 'add', this.appendItem);
+        //fetch data from localstorage
+        app.events.fetch();
+        this.render();
     },
 
     render: function() {
-
+        //drag the event list to the right place
+        var height = this.$eventForm[0].offsetHeight;
+        this.$eventsView.css('top', -height);
     },
 
     appendItem: function(event) {
@@ -42,12 +48,12 @@ app.MainView = Backbone.View.extend({
         app.events.create({
             name: this.$inputs.eventName.val(),
             type: this.$inputs.eventType.val(),
-            host: this.$inputs.eventType.val(),
-            startTime: this.$inputs.eventType.val(),
-            endTime: this.$inputs.eventType.val(),
-            guestList: this.$inputs.eventType.val(),
-            location: this.$inputs.eventType.val(),
-            extraInfo: this.$inputs.eventType.val()
+            host: this.$inputs.eventHost.val(),
+            startTime: this.$inputs.startTime.val(),
+            endTime: this.$inputs.endTime.val(),
+            guestList: this.$inputs.eventLocation.val(),
+            location: this.$inputs.guestList.val(),
+            extraInfo: this.$inputs.extraInfo.val()
         });
         //prevent page refresh
         return false;
