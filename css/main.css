@@ -421,7 +421,7 @@ header {
     display: inline-block; }
   .navigation a {
     display: block;
-    padding: 0.5em 1em;
+    padding: 0.5em 1.5em;
     color: #fff;
     text-decoration: none; }
     .navigation a:active {
@@ -431,7 +431,7 @@ header {
   position: relative; }
 
 .current {
-  border-bottom: 2px solid #fff; }
+  border-bottom: 3px solid #fff; }
 
 .event-form {
   padding: 0 1em;
@@ -457,17 +457,19 @@ ul {
   .event-list li {
     width: 45%;
     float: left;
-    border: 2px solid #FECE00;
+    border: 2px solid;
+    border-radius: 3px;
     box-shadow: 1px 1px 10px #999;
-    margin: 1em 2% 0em; }
+    margin: 0.8em 2%; }
     @media screen and (max-width: 400px) {
       .event-list li {
         width: 92%; } }
   .event-list h2 {
-    background: #FECE00;
     margin: 0;
     padding: 0.5em 1em;
     color: #fff; }
+  .event-list div.content {
+    background: #fcfefc; }
   .event-list h3 {
     color: #999;
     text-align: right;
@@ -540,6 +542,9 @@ button {
     padding: 0;
     color: #7091c9;
     font-style: italic; }
+  .regist-form .alert {
+    color: #e8814a;
+    font-size: 12px; }
   .regist-form .close-form {
     position: absolute;
     top: 0.5em;

@@ -9,6 +9,7 @@ app.Event = Backbone.Model.extend({
         endTime: '',
         guestList: 'You will see them',
         location: '',
-        extraInfo:'No additional information'
+        extraInfo:'No additional information',
+        color: '#fec000'
     }
 });

@@ -1,5 +1,8 @@
 var app = app || {};
-
+/**
+ * The router make sure the url change will change the app's view, the right url
+ * always brings the right view
+ */
 var Router = Backbone.Router.extend({
     routes: {
         '': 'defaultView',

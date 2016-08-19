@@ -20,7 +20,7 @@
             <div class="user-state">
                 <button id="regist-btn">Register</button>
                 <div id="user">
-
+                <!--display user name-->
                 </div>
             </div>
             <nav>
@@ -31,6 +31,7 @@
             </nav>
         </div>
     </header>
+
     <!--Registration form, it's part of the register view-->
     <div class="regist cover-layer">
         <div class="regist-form">
@@ -38,12 +39,15 @@
             <form id="registration">
                 <label for="name"><span class="label-text">name</span>
                     <input type="text" id="name" placeholder="example: Jason Bourne" required autocomplete="name">
+                    <p class="alert"></p>
                 </label>
                 <label for="email"><span class="label-text">email</span>
                     <input type="email" id="email" placeholder="email@domain.com" required autocomplete="email">
+                    <p class="alert"></p>
                 </label>
                 <label for="password"><span class="label-text">password</span>
                     <input type="password" id="password" required placeholder="6~16 numbers and letters">
+                    <p class="alert"></p>
                 </label>
                 <p>You can close this form to skip.</p>
                 <label for="submit">
@@ -90,6 +94,9 @@
                         <textarea type="textarea" id="extra-info" placeholder="Additional information ">
                         </textarea>
                     </label>
+                    <label for="event-color"><span class="label-text">Choose a color for the event</span>
+                        <input id="event-color" type="color"></input>
+                    </label>
 
                     <button id="add">Add</button>
 
@@ -105,7 +112,8 @@
 
     <footer>
         <hr>
-        <p>View code on <a href="https://github.com/JimmyQsc/meet-up_event_planner">github</a></p>
+        <p>View code on <a href="https://github.com/JimmyQsc/meet-up_event_planner">github</a><br>
+        Made by <a href="https://jimmyqsc.github.io" target="blank">Jimmy Q</a></p>
     </footer>
 
 
@@ -116,22 +124,25 @@
 
 <script type="text/template" id="event-template">
     <h2><%= name %></h2>
-    <h3><%= type %></h3>
-    <p><span class="label">time: </span><%= startTime %> - <%= endTime %></p>
-    <p><span class="label">location: </span><%= location %></p>
-    <p><span class="label">host: </span><%= host %></p>
-    <p><span class="label">guest list: </span><%= guestList %></p>
-    <p><span class="label">description: </span><%= extraInfo %></p>
+    <div class="content">
+        <h3><%= type %></h3>
+        <p><span class="label">time: </span><%= startTime %> - <%= endTime %></p>
+        <p><span class="label">location: </span><%= location %></p>
+        <p><span class="label">host: </span><%= host %></p>
+        <p><span class="label">guest list: </span><%= guestList %></p>
+        <p><span class="label">description: </span><%= extraInfo %></p>
+    </div>
 </script>
 
 
 <script src="js/models/event.js"></script>
 <script src="js/models/user.js"></script>
 <script src="js/collections/events.js"></script>
-<script src="js/views/user.js"></script>
+<script src="js/views/register.js"></script>
 <script src="js/views/event.js"></script>
 <script src="js/views/mainView.js"></script>
 <script src="js/router/router.js"></script>
+<script src="js/validation/validation.js"></script>
 <script src="js/app.js"></script>
 
 </body>

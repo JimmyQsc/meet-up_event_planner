@@ -14,6 +14,11 @@ app.EventView = Backbone.View.extend({
 
     render: function() {
         this.$el.html(this.template(this.model.attributes));
+        var eventColor = this.model.get('color');
+        this.$el.css({
+            'background': eventColor,
+            'border-color': eventColor,
+        });
         return this;
     }
 });

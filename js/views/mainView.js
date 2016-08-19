@@ -20,7 +20,8 @@ app.MainView = Backbone.View.extend({
             endTime: $('#end-time'),
             eventLocation: $('#event-location'),
             guestList: $('#guest-list'),
-            extraInfo: $('#extra-info')
+            extraInfo: $('#extra-info'),
+            eventColor: $('#event-color')
         };
 
         this.$form = $('#add-event');
@@ -54,10 +55,10 @@ app.MainView = Backbone.View.extend({
             endTime: this.$inputs.endTime.val(),
             guestList: this.$inputs.eventLocation.val(),
             location: this.$inputs.guestList.val(),
-            extraInfo: this.$inputs.extraInfo.val()
+            extraInfo: this.$inputs.extraInfo.val(),
+            color: this.$inputs.eventColor.val()
         });
 
-        this.$eventForm.reset();
         //prevent page refresh
         return false;
     }
