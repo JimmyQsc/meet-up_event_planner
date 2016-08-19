@@ -2,7 +2,8 @@ var app = app || {};
 //global regular expressions
 var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
     alphaRegex = /^[a-z]+$/i,
-    alphaNumericRegex = /^[a-z0-9]+$/i;
+    alphaNumericRegex = /^[a-z0-9]+$/i,
+    nameRegex = /^[a-zA-Z ]*$/;
 
 //messages when requirement doesn't pass
 app.FormErrorMessages = {
@@ -13,7 +14,8 @@ app.FormErrorMessages = {
     alpha: 'This field must only contain alphabetical characters.',
     alphaNumeric: 'This field must only contain alpha-numeric characters.',
     hasNumber: 'This field must contain at least a number.',
-    hasLetter: 'This field must contain at least a letter.'
+    hasLetter: 'This field must contain at least a letter.',
+    nameWithSpace: 'This field must only contain alphabetical characters and space between.'
 };
 
 //methods to validate the input value
@@ -65,6 +67,12 @@ app.FormErrorChecker = {
             return app.FormErrorMessages.hasLetter;
         }
         return '';
+    },
+    nameWithSpace: function(value) {
+        if (!nameRegex.test(value)) {
+            return app.FormErrorMessages.nameWithSpace;
+        }
+        return '';
     }
 };
 
@@ -104,3 +112,19 @@ app.CustomValidator.prototype.validate = function() {
         }
     }, this);
 };
+
+
+function valideOnChange(inputs) {
+    _.each(inputs, function(input) {
+        input.change(function() {
+            input.validator.validate();
+            input.parent().find('p').html(input.validator.getMessage());
+            if (input.validator.messages.length) {
+                input.addClass('invalid');
+            } else {
+                input.removeClass('invalid');
+            }
+
+        });
+    });
+}

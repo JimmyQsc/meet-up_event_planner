@@ -31,19 +31,15 @@ header {
 
     #regist-btn {
         display: none;
-    }
-
-    button {
         padding: 0.3em 0.5em;
         box-shadow: none;
         background: #fff;
         color: #262829;
         width: 6em;
     }
-    span {
+    span.user-name {
         padding: 0.3em 0.5em;
         box-shadow: none;
-        background: $main-color;
         width: 6em;
         color: white;
         border: 2px solid #fff;

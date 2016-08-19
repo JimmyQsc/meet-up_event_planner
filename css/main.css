@@ -390,17 +390,15 @@ header {
   top: 1.2em;
   right: 1.2em; }
   .user-state #regist-btn {
-    display: none; }
-  .user-state button {
+    display: none;
     padding: 0.3em 0.5em;
     box-shadow: none;
     background: #fff;
     color: #262829;
     width: 6em; }
-  .user-state span {
+  .user-state span.user-name {
     padding: 0.3em 0.5em;
     box-shadow: none;
-    background: #0376b5;
     width: 6em;
     color: white;
     border: 2px solid #fff;
@@ -511,6 +509,9 @@ button {
 .label-text {
   color: #666;
   font-size: 14px; }
+
+.invalid {
+  border: 1px solid #e8814a; }
 
 .regist-form {
   background: #fff;
