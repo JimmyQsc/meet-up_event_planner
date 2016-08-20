@@ -24,14 +24,14 @@ app.RegisterView = Backbone.View.extend({
         this.submitBtn = $('#submit');
 
         //set validator for diffrent input element
-        this.nameInput.validator = new app.CustomValidator($('#name'));
+        this.nameInput.validator = new app.CustomValidator(this.nameInput);
         //set requirements for element
         this.nameInput.validator.requirements = [app.FormErrorChecker.required, app.FormErrorChecker.nameWithSpace];
 
-        this.emailInput.validator = new app.CustomValidator($('#email'));
+        this.emailInput.validator = new app.CustomValidator(this.emailInput);
         this.emailInput.validator.requirements = [app.FormErrorChecker.required, app.FormErrorChecker.validEmail];
 
-        this.pwdInput.validator = new app.CustomValidator($('#password'));
+        this.pwdInput.validator = new app.CustomValidator(this.pwdInput);
         this.pwdInput.validator.requirements = [app.FormErrorChecker.required, app.FormErrorChecker.minLength, app.FormErrorChecker.maxLength, app.FormErrorChecker.alphaNumeric, app.FormErrorChecker.hasNumber, app.FormErrorChecker.hasLetter];
 
         this.formInputs = [this.nameInput, this.emailInput, this.pwdInput];
