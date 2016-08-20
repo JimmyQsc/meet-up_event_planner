@@ -132,4 +132,17 @@ button {
         width: 60%;
         margin: 1em 20%;
     }
+
+    label {
+        position: relative;
+    }
+
+    .alert {
+        position: absolute;
+        left: 7em;
+        margin: 0 auto;
+        color: $alert;
+        font-style: italic;
+        font-size: 13px;
+    }
 }

@@ -4,7 +4,8 @@ app.MainView = Backbone.View.extend({
     el: '.planer-app',
 
     events: {
-        'click #add': 'createEvent'
+        'click #add': 'validate',
+        'submit #add-event': 'createEvent'
     },
 
     initialize: function() {
@@ -23,8 +24,27 @@ app.MainView = Backbone.View.extend({
             extraInfo: $('#extra-info'),
             eventColor: $('#event-color')
         };
+        this.eventName =  $('#event-name');
+        this.eventType = $('#event-type');
+        this.startTime = $('#start-time');
+        this.eventLocation = $('#event-location');
+
+        this.requiredInputs = [this.eventName, this.eventType, this.eventLocation];
+        this.eventName.validator = new app.CustomValidator($('#event-name'));
+        this.eventName.validator.requirements = [app.FormErrorChecker.required];
+
+        this.eventType.validator = new app.CustomValidator($('#event-type'));
+        this.eventType.validator.requirements = [app.FormErrorChecker.required];
+
+        this.eventLocation.validator = new app.CustomValidator($('#event-location'));
+        this.eventLocation.validator.requirements = [app.FormErrorChecker.required];
+
+        validateOnEdit(this.requiredInputs);
 
         this.$form = $('#add-event');
+        $('#event-color').val('#FECE00');
+
+        this.appHeight = this.$eventForm[0].offsetHeight;
         //listen to collection event
         this.listenTo(app.events, 'add', this.appendItem);
         //fetch data from localstorage
@@ -34,9 +54,8 @@ app.MainView = Backbone.View.extend({
 
     render: function() {
         //drag the events view to the right place
-        var height = this.$eventForm[0].offsetHeight;
-        this.$eventsView.css('margin-top', -height);
-        this.$eventsView.css('height', height);
+        this.$eventsView.css('margin-top', -this.appHeight);
+        this.$eventsView.css('height', this.appHeight);
     },
 
     appendItem: function(event) {
@@ -44,6 +63,10 @@ app.MainView = Backbone.View.extend({
         var view = new app.EventView({model: event});
         //append it to teh list
         this.$list.append(view.render().el);
+    },
+
+    validate: function() {
+        validateOnSubmit(this.requiredInputs);
     },
 
     createEvent: function() {
@@ -58,8 +81,8 @@ app.MainView = Backbone.View.extend({
             extraInfo: this.$inputs.extraInfo.val(),
             color: this.$inputs.eventColor.val()
         });
+        this.$form[0].reset();
 
-        //prevent page refresh
         return false;
     }
 });

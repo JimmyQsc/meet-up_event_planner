@@ -1,8 +1,10 @@
 var app = app || {};
+
 //global regular expressions
 var emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
     alphaRegex = /^[a-z]+$/i,
     alphaNumericRegex = /^[a-z0-9]+$/i,
+    spaceRegex = /^\s+$/,
     nameRegex = /^[a-zA-Z ]*$/;
 
 //messages when requirement doesn't pass
@@ -21,6 +23,10 @@ app.FormErrorMessages = {
 //methods to validate the input value
 app.FormErrorChecker = {
     required: function(value) {
+        //check if the value only cotains spaces
+        if (spaceRegex.test(value)) {
+            return app.FormErrorMessages.required;
+        }
         if (value.length<1) {
             return app.FormErrorMessages.required;
         }
@@ -113,18 +119,37 @@ app.CustomValidator.prototype.validate = function() {
     }, this);
 };
 
+//use input's validator to validate a input's value
+function validate(input) {
+    if (input.validator) {
+        input.validator.validate();
+        input.parent().find('p').html(input.validator.getMessage());
+        if (input.validator.messages.length) {
+            input.addClass('invalid');
+        } else {
+            input.removeClass('invalid');
+        }
+    }
+}
 
-function valideOnChange(inputs) {
+//validate input when edit the input
+function validateOnEdit(inputs) {
     _.each(inputs, function(input) {
         input.change(function() {
-            input.validator.validate();
-            input.parent().find('p').html(input.validator.getMessage());
-            if (input.validator.messages.length) {
-                input.addClass('invalid');
-            } else {
-                input.removeClass('invalid');
-            }
-
+            validate(input);
         });
+        input.blur(function() {
+            validate(input);
+        });
+    });
+}
+
+//validate when submitting the form
+function validateOnSubmit(inputs) {
+    _.each(inputs, function(input) {
+        if (input.validator) {
+            input.validator.validate();
+            input[0].setCustomValidity(input.validator.getMessage());
+        }
     });
 }

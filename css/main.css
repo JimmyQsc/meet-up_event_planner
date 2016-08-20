@@ -453,15 +453,16 @@ ul {
   padding: 0;
   margin: 0; }
   .event-list li {
-    width: 45%;
+    width: 44%;
     float: left;
     border: 2px solid;
     border-radius: 3px;
     box-shadow: 1px 1px 10px #999;
-    margin: 0.8em 2%; }
-    @media screen and (max-width: 400px) {
+    margin: 1em 2% 0; }
+    @media screen and (max-width: 480px) {
       .event-list li {
-        width: 92%; } }
+        width: 92%;
+        margin-left: 3%; } }
   .event-list h2 {
     margin: 0;
     padding: 0.5em 1em;
@@ -588,3 +589,12 @@ button {
   .add-event-form #add {
     width: 60%;
     margin: 1em 20%; }
+  .add-event-form label {
+    position: relative; }
+  .add-event-form .alert {
+    position: absolute;
+    left: 7em;
+    margin: 0 auto;
+    color: #e8814a;
+    font-style: italic;
+    font-size: 13px; }

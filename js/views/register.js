@@ -37,7 +37,7 @@ app.RegisterView = Backbone.View.extend({
         this.formInputs = [this.nameInput, this.emailInput, this.pwdInput];
 
         //validate inputs whenever a change event is triggered
-        valideOnChange(this.formInputs);
+        validateOnEdit(this.formInputs);
 
         //close the form when user click outside the form or user clicks the close button
         $('.regist-form').click(function(e) {

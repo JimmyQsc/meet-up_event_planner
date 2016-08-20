@@ -13,9 +13,6 @@ $(function() {
 
     //Validate when clicking the submit button
     submitBtn.click(function() {
-        _.each(register.formInputs, function(input) {
-            input.validator.validate();
-            input[0].setCustomValidity(input.validator.getMessage());
-        });
+        validateOnSubmit(register.formInputs);
     });
 }());

@@ -21,7 +21,6 @@
                 <button id="regist-btn">Register</button>
                 <div id="user">
                 <!--display user name-->
-
                 </div>
                 <!--Registration form, it's part of the register view-->
                 <div class="regist cover-layer">
@@ -48,6 +47,7 @@
                     </div>
                 </div>
             </div>
+
             <nav>
                 <ul class="navigation">
                     <li><a class="addEvent current" href="#/">Add</a></li>
@@ -68,33 +68,37 @@
                 <form id="add-event">
                     <label for="event-name"><span class="label-text">Event name:</span>
                         <input type="text" id="event-name" placeholder="Event Name" required>
+                        <p class="alert"></p>
                     </label>
                     <label for="event-type"><span class="label-text">Event type:</span>
-                        <input list="event-list" placeholder="Event Type" id="event-type">
-                        <datalist id="event-list">
+                        <input list="type-list" placeholder="Event Type" id="event-type">
+                        <datalist id="type-list">
                             <option value="Party"></option>
                             <option value="Meeting"></option>
                             <option value="Soprt"></option>
                         </datalist>
+                        <p class="alert"></p>
                     </label>
                     <label for="event-host"><span class="label-text">Host:</span>
                         <input type="text" id="event-host" placeholder="Host">
                     </label>
                     <label for="start-time"><span class="label-text">Start time:</span>
                         <input type="datetime-local" id="start-time" required>
+                        <p class="alert"></p>
                     </label>
                     <label for="end-time"><span class="label-text">End time:</span>
                         <input type="datetime-local" id="end-time" required>
                     </label>
                     <label for="event-location"><span class="label-text">Event location:</span>
                         <input type="address" id="event-location" required placeholder="Event location">
+                        <p class="alert"></p>
                     </label>
                     <label for="guest-list"><span class="label-text">Guest list:</span>
                         <textarea type="textarea" id="guest-list" placeholder="Names Separate by ','">
                         </textarea>
                     </label>
                     <label for="extra-info"><span class="label-text">Additional info:</span>
-                        <textarea type="textarea" id="extra-info" placeholder="Additional information ">
+                        <textarea type="textarea" id="extra-info" placeholder="Additional information">
                         </textarea>
                     </label>
                     <label for="event-color"><span class="label-text">Choose a color for the event</span>
@@ -137,7 +141,7 @@
     </div>
 </script>
 
-
+<script src="js/validation/validation.js"></script>
 <script src="js/models/event.js"></script>
 <script src="js/models/user.js"></script>
 <script src="js/collections/events.js"></script>
@@ -145,7 +149,6 @@
 <script src="js/views/event.js"></script>
 <script src="js/views/mainView.js"></script>
 <script src="js/router/router.js"></script>
-<script src="js/validation/validation.js"></script>
 <script src="js/app.js"></script>
 
 </body>
