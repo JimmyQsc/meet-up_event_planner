@@ -11,7 +11,7 @@ app.EventView = Backbone.View.extend({
     intialize: function() {
         this.listenTo(this.model, 'change', this.render);
     },
-
+    //renber a single event's view
     render: function() {
         this.$el.html(this.template(this.model.attributes));
         var eventColor = this.model.get('color');

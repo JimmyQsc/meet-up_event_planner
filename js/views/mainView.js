@@ -13,22 +13,19 @@ app.MainView = Backbone.View.extend({
         this.$list = $('.event-list');
         this.$eventsView = $('.events-view');
         this.$eventForm = $('.event-form');
-        this.$inputs = {
-            eventName: $('#event-name'),
-            eventType: $('#event-type'),
-            eventHost: $('#event-host'),
-            startTime: $('#start-time'),
-            endTime: $('#end-time'),
-            eventLocation: $('#event-location'),
-            guestList: $('#guest-list'),
-            extraInfo: $('#extra-info'),
-            eventColor: $('#event-color')
-        };
+        //all the inputs
+        this.eventHost = $('#event-host');
+        this.endTime = $('#end-time');
+        this.guestList = $('#guest-list');
+        this.extraInfo = $('#extra-info');
+        this.eventColor = $('#event-color');
+
         this.eventName =  $('#event-name');
         this.eventType = $('#event-type');
         this.startTime = $('#start-time');
         this.eventLocation = $('#event-location');
 
+        //all the required inputs
         this.requiredInputs = [this.eventName, this.eventType, this.startTime, this.eventLocation];
         this.eventName.validator = new app.CustomValidator($('#event-name'));
         this.eventName.validator.requirements = [app.FormErrorChecker.required];
@@ -45,6 +42,7 @@ app.MainView = Backbone.View.extend({
         validateOnEdit(this.requiredInputs);
 
         this.$form = $('#add-event');
+        //set the default color
         $('#event-color').val('#FECE00');
 
         this.appHeight = this.$eventForm[0].offsetHeight;
@@ -73,19 +71,26 @@ app.MainView = Backbone.View.extend({
     },
 
     createEvent: function() {
+        //create an event model
         app.events.create({
-            name: this.$inputs.eventName.val(),
-            type: this.$inputs.eventType.val(),
-            host: this.$inputs.eventHost.val(),
-            startTime: this.$inputs.startTime.val(),
-            endTime: this.$inputs.endTime.val(),
-            guestList: this.$inputs.eventLocation.val(),
-            location: this.$inputs.guestList.val(),
-            extraInfo: this.$inputs.extraInfo.val(),
-            color: this.$inputs.eventColor.val()
+            name: this.eventName.val(),
+            type: this.eventType.val(),
+            host: this.eventHost.val(),
+            startTime: this.startTime.val(),
+            endTime: this.endTime.val(),
+            guestList: this.eventLocation.val(),
+            location: this.guestList.val(),
+            extraInfo: this.extraInfo.val(),
+            color: this.eventColor.val()
         });
-        this.$form[0].reset();
-
+        this.resetForm();
+        //prevent reload page
         return false;
+    },
+
+    //reset the form
+    resetForm: function() {
+        this.$form[0].reset();
+        $('#event-color').val('#FECE00');
     }
 });

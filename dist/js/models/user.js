@@ -1,0 +1,1 @@
+var app=app||{};app.User=Backbone.Model.extend({defaults:{login:!1,userName:"",userEmail:"",userPwd:""},localStorage:new Backbone.LocalStorage("user")});

@@ -6,8 +6,8 @@ app.RegisterView = Backbone.View.extend({
     events: {
         'click #regist-btn': 'showRegist',
         'submit #registration': 'saveUser',
-        //'click #submit': 'validate'
     },
+
     //template for the user
     template: _.template($('#user-template').html()),
 
@@ -73,14 +73,8 @@ app.RegisterView = Backbone.View.extend({
         this.render();
     },
 
-    // validate: function() {
-    //     _.each(this.formInputs, function(input) {
-    //         input.validator.validate();
-    //         input[0].setCustomValidity(input.validator.getMessage());
-    //     });
-    // },
+    //save user data
     saveUser: function() {
-
         this.model.save({
             userName: this.nameInput.val(),
             userEmail: this.emailInput.val(),

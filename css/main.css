@@ -389,13 +389,6 @@ header {
   position: absolute;
   top: 1.2em;
   right: 1.2em; }
-  .user-state #regist-btn {
-    display: none;
-    padding: 0.3em 0.5em;
-    box-shadow: none;
-    background: #fff;
-    color: #262829;
-    width: 6em; }
   .user-state span.user-name {
     padding: 0.3em 0.5em;
     box-shadow: none;
@@ -403,6 +396,14 @@ header {
     color: white;
     border: 2px solid #fff;
     border-radius: 15px; }
+
+#regist-btn {
+  display: none;
+  padding: 0.3em 0.5em;
+  box-shadow: none;
+  background: #fff;
+  color: #262829;
+  width: 6em; }
 
 .app-title {
   margin: 0;
@@ -459,6 +460,8 @@ ul {
     border-radius: 3px;
     box-shadow: 1px 1px 10px #999;
     margin: 1em 2% 0; }
+    .event-list li:last-child {
+      margin-bottom: 1em; }
     @media screen and (max-width: 480px) {
       .event-list li {
         width: 92%;
@@ -467,7 +470,7 @@ ul {
     margin: 0;
     padding: 0.5em 1em;
     color: #fff; }
-  .event-list div.content {
+  .event-list .content {
     background: #fcfefc; }
   .event-list h3 {
     color: #999;

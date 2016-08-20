@@ -6,20 +6,17 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserSync = require('browser-sync').create();
 var eslint = require('gulp-eslint');
 var concat = require('gulp-concat');
-
+var cleanCSS = require('gulp-clean-css');
+var uglify = require('gulp-uglify');
 
 
 
 
 gulp.task('default', ['styles'], function() {
     gulp.watch('scss/**/*.scss', ['styles']);
-
-    // browserSync.init({
-    //     server: './'
-    // });
-
-    // browserSync.stream();
 });
+
+gulp.task('dist', ['copy_html', 'copy_css', 'copy_scripts']);
 
 gulp.task('lint', function(){
     // ESLint ignores files with "node_modules" paths.
@@ -44,11 +41,28 @@ gulp.task('styles', function() {
         .pipe(autoprefixer({
             browsers: ['last 2 versions']
         }))
-        .pipe(gulp.dest('./css/'));
+        .pipe(gulp.dest('./css/'))
+
 });
 
-gulp.task('scripts', function() {
-  return gulp.src('js/*.js')
-    .pipe(concat('app.js'))
-    .pipe(gulp.dest(''));
+gulp.task('copy_scripts', function() {
+    gulp.src('js/**/*')
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/js/'));
 });
+
+gulp.task('copy_css', function() {
+    gulp.src('css/*.css')
+        .pipe(cleanCSS())
+        .pipe(gulp.dest('./dist/css/'));
+});
+
+gulp.task('copy_html', function() {
+    gulp.src('./*.html')
+        .pipe(gulp.dest('./dist/'));
+});
+
+// gulp.task('copy_libs', function() {
+//     gulp.src('./bower_components/**/*.js')
+//         .pipe(gulp.dest('./dist/js/libs/'));
+// })

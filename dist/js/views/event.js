@@ -1,0 +1,1 @@
+var app=app||{};app.EventView=Backbone.View.extend({tagName:"li",className:"event",template:_.template($("#event-template").html()),intialize:function(){this.listenTo(this.model,"change",this.render)},render:function(){this.$el.html(this.template(this.model.attributes));var e=this.model.get("color");return this.$el.css({background:e,"border-color":e}),this}});

@@ -1,5 +1,5 @@
 var app = app || {};
-
+//Model for a event
 app.Event = Backbone.Model.extend({
     defaults: {
         name: '',
@@ -7,7 +7,7 @@ app.Event = Backbone.Model.extend({
         host: '',
         startTime: '',
         endTime: '',
-        guestList: 'You will see them',
+        guestList: 'Coolest people on earth',
         location: '',
         extraInfo:'No additional information',
         color: '#fec000'
