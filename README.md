@@ -23,6 +23,7 @@
 
 ## References
 
+* [Building High Conversion Web Forms - Udacity](https://cn.udacity.com/course/building-high-conversion-web-forms--ud890)
 * [Backbone documentation](http://backbonejs.org/)
 * [todoMVC](http://todomvc.com/)
 * [Developing Backbone.js Applications](https://addyosmani.com/backbone-fundamentals/)
