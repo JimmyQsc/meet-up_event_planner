@@ -29,12 +29,15 @@ app.MainView = Backbone.View.extend({
         this.startTime = $('#start-time');
         this.eventLocation = $('#event-location');
 
-        this.requiredInputs = [this.eventName, this.eventType, this.eventLocation];
+        this.requiredInputs = [this.eventName, this.eventType, this.startTime, this.eventLocation];
         this.eventName.validator = new app.CustomValidator($('#event-name'));
         this.eventName.validator.requirements = [app.FormErrorChecker.required];
 
         this.eventType.validator = new app.CustomValidator($('#event-type'));
         this.eventType.validator.requirements = [app.FormErrorChecker.required];
+
+        this.startTime.validator = new app.CustomValidator($('#start-time'));
+        this.startTime.validator.requirements = [app.FormErrorChecker.required];
 
         this.eventLocation.validator = new app.CustomValidator($('#event-location'));
         this.eventLocation.validator.requirements = [app.FormErrorChecker.required];

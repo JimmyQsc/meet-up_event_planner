@@ -108,6 +108,7 @@ app.CustomValidator.prototype.getMessage = function() {
 app.CustomValidator.prototype.validate = function() {
     //reset the messages array before validate
     this.messages = [];
+
     //get input value
     var inputValue = this.input.val();
     //fo through the requirements

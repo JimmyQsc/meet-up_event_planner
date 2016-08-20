@@ -7,6 +7,8 @@
 1. Open index.html to run the app.
 2. first you will see a registration form, you can fill the form to register or skip, either way you could use the app.
 3. After you register or close the registration form, you could fill in the form in the `add` pane to add an event.
+  * In the add event form, the `event name`, `event type`, `start time` and `location` is required.
+  * You can choose a color for a event, this event's card's background-color will be the color of your choose.
 4. All your event will show up in `My events` pane.
 5. you could always click the `register` button on the top right to register.
 
