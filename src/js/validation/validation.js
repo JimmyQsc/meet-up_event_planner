@@ -106,7 +106,7 @@ var SuperInput = function(input) {
     this.input = input;
     this.requirements = [];
     this.isValid = false;
-    this.alertEl = input.parent().find('p.alert');
+    this.alertEl = input.parent().find('.alert');
 }
 
 SuperInput.prototype = {

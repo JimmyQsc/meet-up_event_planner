@@ -99,6 +99,8 @@ progress[value]::-webkit-progress-value {
     }
 
     .alert {
+        display: block;
+        width: 100%;
         color: $alert;
         font-size: 12px;
     }
@@ -187,6 +189,7 @@ progress[value]::-webkit-progress-value {
 
     .alert {
         position: absolute;
+        display: block;
         width: 100%;
         text-align: center;
         top: 4em;

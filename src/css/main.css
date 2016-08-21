@@ -572,6 +572,8 @@ progress[value]::-webkit-progress-value {
     color: #7091c9;
     font-style: italic; }
   .regist-form .alert {
+    display: block;
+    width: 100%;
     color: #e8814a;
     font-size: 12px; }
   .regist-form .close-form {
@@ -625,6 +627,7 @@ progress[value]::-webkit-progress-value {
     position: relative; }
   .add-event-form .alert {
     position: absolute;
+    display: block;
     width: 100%;
     text-align: center;
     top: 4em;
