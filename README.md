@@ -1,4 +1,6 @@
-# Meet-up event planer - Udacity Senior Web dev project
+# Meet-up event planer
+
+[Demo](https://jimmyqsc.github.io/meet-up_event_planner/dist/#/)
 
 <img src="https://cloud.githubusercontent.com/assets/16117899/17828591/1186f17c-66c9-11e6-9161-da1d7ec75033.gif" alt="screenshot" height=450px>
 
@@ -20,7 +22,8 @@
 * [Backbone.localStorage](https://github.com/jeromegn/Backbone.localStorage)
 
 ## References
-
+* [The HTML5 progress Element -  PANKAJ PARASHAR](https://css-tricks.com/html5-progress-element/)
+* [Building High Conversion Web Forms - Udacity](https://cn.udacity.com/course/building-high-conversion-web-forms--ud890)
 * [Backbone documentation](http://backbonejs.org/)
 * [todoMVC](http://todomvc.com/)
 * [Developing Backbone.js Applications](https://addyosmani.com/backbone-fundamentals/)
