@@ -70,14 +70,14 @@ progress[value]::-webkit-progress-value {
     left: 50%;
     top: 50%;
     margin-left: -180px;
-    margin-top: -270px;
+    margin-top: -260px;
     text-align: center;
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 450px) {
         width: 90%;
         left: 5%;
-        top: 10%;
-        margin: 0;
+        margin-left: 0;
+        margin-top: -250px;
     }
 
     h2 {
@@ -85,7 +85,7 @@ progress[value]::-webkit-progress-value {
         padding: 0.6em 0;
         border-radius: 5px 5px 0 0;
         text-align: center;
-        font-size: 22px;
+        font-size: 20px;
         color: #fff;
         background: #0376b5;
     }
@@ -99,6 +99,8 @@ progress[value]::-webkit-progress-value {
     }
 
     .alert {
+        display: block;
+        width: 100%;
         color: $alert;
         font-size: 12px;
     }
@@ -120,14 +122,13 @@ progress[value]::-webkit-progress-value {
 
         .label-text {
             color: #666;
-            font-size: 16px;
+            font-size: 14px;
         }
-
         input {
             display: block;
             width: 80%;
             line-height: 2em;
-            margin: 0.5em auto;
+            margin: 0.3em auto;
         }
 
         #submit {
@@ -149,11 +150,27 @@ progress[value]::-webkit-progress-value {
     input, textarea {
         width: 90%;
         line-height: 1.8em;
-        margin: 0.2em 5%;
+        margin: 0.2em 6% 0.8em;
         @media screen and (min-width: 500px) {
             width: 88%;
         }
     }
+
+    progress {
+        width: 100%;
+        height: 8px;
+    }
+
+    progress[value]::-webkit-progress-value {
+        background-image:
+            -webkit-linear-gradient(-45deg, 
+                                    transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                                    rgba(0,0, 0, .1) 66%, transparent 66%),
+            -webkit-linear-gradient(top, 
+                                    rgba(255, 255, 255, .25), 
+                                    rgba(0, 0, 0, .25)),
+            -webkit-linear-gradient(left, #4ABDAC, #FF471C);
+}
 
     @media screen and (min-width: 500px) {
         .label-text {
@@ -172,7 +189,10 @@ progress[value]::-webkit-progress-value {
 
     .alert {
         position: absolute;
-        left: 7em;
+        display: block;
+        width: 100%;
+        text-align: center;
+        top: 4em;
         margin: 0 auto;
         color: $alert;
         font-style: italic;

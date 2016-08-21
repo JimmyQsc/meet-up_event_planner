@@ -11,8 +11,19 @@ var sourcemaps = require('gulp-sourcemaps');
 var useref = require('gulp-useref');
 var rename = require('gulp-rename');
 
+var reload      = browserSync.reload;
+
 gulp.task('default', ['styles'], function() {
     gulp.watch('src/scss/**/*.scss', ['styles']);
+
+    browserSync.init({
+        server: {
+            baseDir: "./"
+        }
+    });
+
+    gulp.watch("src/css/*.css").on("change", reload);
+    gulp.watch("src/js/**/*.js").on("change", reload);
 });
 
 gulp.task('dist', ['copy_html', 'copy_css', 'copy_scripts']);
@@ -45,7 +56,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('copy_scripts', function() {
-    gulp.src('./src/js/**/*')
+    gulp.src(['./src/js/models/*.js','./src/js/**/*'])
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./dist/js/'))

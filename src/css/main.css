@@ -550,20 +550,20 @@ progress[value]::-webkit-progress-value {
   left: 50%;
   top: 50%;
   margin-left: -180px;
-  margin-top: -270px;
+  margin-top: -260px;
   text-align: center; }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 450px) {
     .regist-form {
       width: 90%;
       left: 5%;
-      top: 10%;
-      margin: 0; } }
+      margin-left: 0;
+      margin-top: -250px; } }
   .regist-form h2 {
     margin: 0;
     padding: 0.6em 0;
     border-radius: 5px 5px 0 0;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     color: #fff;
     background: #0376b5; }
   .regist-form p {
@@ -572,6 +572,8 @@ progress[value]::-webkit-progress-value {
     color: #7091c9;
     font-style: italic; }
   .regist-form .alert {
+    display: block;
+    width: 100%;
     color: #e8814a;
     font-size: 12px; }
   .regist-form .close-form {
@@ -587,12 +589,12 @@ progress[value]::-webkit-progress-value {
     margin: 1em 0; }
     .regist-form #registration .label-text {
       color: #666;
-      font-size: 16px; }
+      font-size: 14px; }
     .regist-form #registration input {
       display: block;
       width: 80%;
       line-height: 2em;
-      margin: 0.5em auto; }
+      margin: 0.3em auto; }
     .regist-form #registration #submit {
       margin-top: 1em;
       text-transform: uppercase; }
@@ -606,10 +608,15 @@ progress[value]::-webkit-progress-value {
   .add-event-form input, .add-event-form textarea {
     width: 90%;
     line-height: 1.8em;
-    margin: 0.2em 5%; }
+    margin: 0.2em 6% 0.8em; }
     @media screen and (min-width: 500px) {
       .add-event-form input, .add-event-form textarea {
         width: 88%; } }
+  .add-event-form progress {
+    width: 100%;
+    height: 8px; }
+  .add-event-form progress[value]::-webkit-progress-value {
+    background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)), -webkit-linear-gradient(left, #4ABDAC, #FF471C); }
   @media screen and (min-width: 500px) {
     .add-event-form .label-text {
       padding: 0 2%; } }
@@ -620,7 +627,10 @@ progress[value]::-webkit-progress-value {
     position: relative; }
   .add-event-form .alert {
     position: absolute;
-    left: 7em;
+    display: block;
+    width: 100%;
+    text-align: center;
+    top: 4em;
     margin: 0 auto;
     color: #e8814a;
     font-style: italic;
