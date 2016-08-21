@@ -2,7 +2,7 @@
 
 [Demo](https://jimmyqsc.github.io/meet-up_event_planner/dist/#/)
 
-<img src="https://cloud.githubusercontent.com/assets/16117899/17828591/1186f17c-66c9-11e6-9161-da1d7ec75033.gif" alt="screenshot" height=450px>
+<img src="https://cloud.githubusercontent.com/assets/16117899/17837282/b34c85da-67e1-11e6-9e04-ec8e4e713f7b.jpg" alt="screenshot" height=450px>
 
 ## How to use
 
