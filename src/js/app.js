@@ -15,4 +15,4 @@ $(function() {
     submitBtn.click(function() {
         validateOnSubmit(register.formInputs);
     });
-}());
+});

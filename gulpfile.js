@@ -1,5 +1,4 @@
 /*eslint-env node */
-
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
@@ -8,9 +7,9 @@ var eslint = require('gulp-eslint');
 var concat = require('gulp-concat');
 var cleanCSS = require('gulp-clean-css');
 var uglify = require('gulp-uglify');
-
-
-
+var sourcemaps = require('gulp-sourcemaps');
+var useref = require('gulp-useref');
+var rename = require('gulp-rename');
 
 gulp.task('default', ['styles'], function() {
     gulp.watch('src/scss/**/*.scss', ['styles']);
@@ -47,7 +46,12 @@ gulp.task('styles', function() {
 
 gulp.task('copy_scripts', function() {
     gulp.src('./src/js/**/*')
+        .pipe(sourcemaps.init())
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest('./dist/js/'))
+        .pipe(rename('app.js'))
         .pipe(uglify())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/js/'));
 });
 
@@ -59,5 +63,6 @@ gulp.task('copy_css', function() {
 
 gulp.task('copy_html', function() {
     gulp.src('./src/*.html')
+        .pipe(useref())
         .pipe(gulp.dest('./dist/'));
 });
