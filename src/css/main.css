@@ -510,6 +510,30 @@ button {
   button:active {
     background: #55a2cc; }
 
+progress {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  width: 80%;
+  height: 20px;
+  background-color: whiteSmoke;
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5) inset;
+  color: royalblue;
+  position: relative;
+  margin: 0.8em 0; }
+
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset; }
+
+progress[value]::-webkit-progress-value {
+  background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, 0.1) 33%, rgba(0, 0, 0, 0.1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.25)), -webkit-linear-gradient(left, #09c, #f44);
+  border-radius: 2px;
+  background-size: 35px 20px, 100% 100%, 100% 100%; }
+
 .label-text {
   color: #666;
   font-size: 14px; }
@@ -526,13 +550,13 @@ button {
   left: 50%;
   top: 50%;
   margin-left: -180px;
-  margin-top: -200px;
+  margin-top: -270px;
   text-align: center; }
   @media screen and (max-width: 400px) {
     .regist-form {
       width: 90%;
       left: 5%;
-      top: 20%;
+      top: 10%;
       margin: 0; } }
   .regist-form h2 {
     margin: 0;
@@ -567,7 +591,7 @@ button {
     .regist-form #registration input {
       display: block;
       width: 80%;
-      line-height: 2.2em;
+      line-height: 2em;
       margin: 0.5em auto; }
     .regist-form #registration #submit {
       margin-top: 1em;

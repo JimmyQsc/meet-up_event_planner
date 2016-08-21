@@ -25,21 +25,21 @@ app.MainView = Backbone.View.extend({
         this.startTime = $('#start-time');
         this.eventLocation = $('#event-location');
 
-        //all the required inputs
-        this.requiredInputs = [this.eventName, this.eventType, this.startTime, this.eventLocation];
-        this.eventName.validator = new app.CustomValidator($('#event-name'));
-        this.eventName.validator.requirements = [app.FormErrorChecker.required];
+        // //all the required inputs
+        // this.requiredInputs = [this.eventName, this.eventType, this.startTime, this.eventLocation];
+        // this.eventName.validator = new app.CustomValidator($('#event-name'));
+        // this.eventName.validator.requirements = [app.FormErrorChecker.required];
 
-        this.eventType.validator = new app.CustomValidator($('#event-type'));
-        this.eventType.validator.requirements = [app.FormErrorChecker.required];
+        // this.eventType.validator = new app.CustomValidator($('#event-type'));
+        // this.eventType.validator.requirements = [app.FormErrorChecker.required];
 
-        this.startTime.validator = new app.CustomValidator($('#start-time'));
-        this.startTime.validator.requirements = [app.FormErrorChecker.required];
+        // this.startTime.validator = new app.CustomValidator($('#start-time'));
+        // this.startTime.validator.requirements = [app.FormErrorChecker.required];
 
-        this.eventLocation.validator = new app.CustomValidator($('#event-location'));
-        this.eventLocation.validator.requirements = [app.FormErrorChecker.required];
+        // this.eventLocation.validator = new app.CustomValidator($('#event-location'));
+        // this.eventLocation.validator.requirements = [app.FormErrorChecker.required];
 
-        validateOnEdit(this.requiredInputs);
+        // validateOnEdit(this.requiredInputs);
 
         this.$form = $('#add-event');
         //set the default color
@@ -62,7 +62,7 @@ app.MainView = Backbone.View.extend({
     appendItem: function(event) {
         //create a view for the event
         var view = new app.EventView({model: event});
-        //append it to teh list
+        //append it to the list
         this.$list.append(view.render().el);
     },
 

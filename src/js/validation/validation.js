@@ -83,74 +83,73 @@ app.FormErrorChecker = {
 };
 
 /**
- * Constructor for the validator
- * @param {[type]} input [description]
+ * Make a input to a SuperInput to validate its value
  */
-app.CustomValidator = function(input) {
+var SuperInput = function(input) {
     this.input = input;
-    this.messages = [];
     this.requirements = [];
-};
+    this.isValid = false;
+    this.alertEl = input.parent().find('p.alert');
+}
 
-app.CustomValidator.prototype.addMessage = function(message) {
-    this.messages.push(message);
-};
+SuperInput.prototype = {
+    getInputValue: function() {
+        return this.input.val();
+    },
 
-app.CustomValidator.prototype.getMessage = function() {
-    var message = '';
-    if (this.messages.length > 0) {
-        message = this.messages.join('. \n');
-    }
-    return message;
-};
+    addMessage : function(message) {
+        this.messages.push(message);
+    },
 
-//go through the requirements to validate input value
-app.CustomValidator.prototype.validate = function() {
-    //reset the messages array before validate
-    this.messages = [];
-
-    //get input value
-    var inputValue = this.input.val();
-    //fo through the requirements
-    _.each(this.requirements, function(requirement) {
-        var msg = requirement(inputValue);
-        if (msg) {
-            this.addMessage(msg);
+    getMessage: function() {
+        var message = '';
+        if(this.messages.length > 0) {
+            message = this.messages.join('. \n');
         }
-    }, this);
-};
+        return message;
+    },
 
-//use input's validator to validate a input's value
-function validate(input) {
-    if (input.validator) {
-        input.validator.validate();
-        input.parent().find('p').html(input.validator.getMessage());
-        if (input.validator.messages.length) {
-            input.addClass('invalid');
+    validateInput: function() {
+        var value = this.getInputValue();
+        this.messages = [];
+
+        _.each(this.requirements, function(requirement) {
+            var msg = requirement(value);
+            if(msg){
+                this.addMessage(msg);
+            }
+        }, this);
+
+        if (this.messages.length) {
+            this.isValid = false;
         } else {
-            input.removeClass('invalid');
+            this.isValid = true;
+        }
+    },
+
+    checkOnEdit: function() {
+        var self = this;
+        this.input.on('change blur', function() {
+            self.validateInput();
+            self.alert();
+        });
+    },
+
+    alert: function() {
+        if (!this.isValid) {
+            this.alertEl.html(this.getMessage());
+            this.input.addClass('invalid');
+        } else {
+            this.alertEl.html('');
+            this.input.removeClass('invalid');
         }
     }
-}
-
-//validate input when edit the input
-function validateOnEdit(inputs) {
-    _.each(inputs, function(input) {
-        input.change(function() {
-            validate(input);
-        });
-        input.blur(function() {
-            validate(input);
-        });
-    });
-}
+};
 
 //validate when submitting the form
-function validateOnSubmit(inputs) {
-    _.each(inputs, function(input) {
-        if (input.validator) {
-            input.validator.validate();
-            input[0].setCustomValidity(input.validator.getMessage());
-        }
+function validateOnSubmit(sInputs) {
+    _.each(sInputs, function(sInput) {
+        sInput.validateInput();
+        sInput.input[0].setCustomValidity(sInput.getMessage());
     });
 }

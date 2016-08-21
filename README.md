@@ -22,7 +22,7 @@
 * [Backbone.localStorage](https://github.com/jeromegn/Backbone.localStorage)
 
 ## References
-
+* [The HTML5 progress Element -  PANKAJ PARASHAR](https://css-tricks.com/html5-progress-element/)
 * [Building High Conversion Web Forms - Udacity](https://cn.udacity.com/course/building-high-conversion-web-forms--ud890)
 * [Backbone documentation](http://backbonejs.org/)
 * [todoMVC](http://todomvc.com/)

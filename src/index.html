@@ -8,19 +8,14 @@
 
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="favicons/manifest.json">
-    <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="favicons/favicon.ico">
-    <meta name="msapplication-config" content="favicons/browserconfig.xml">
+    <link rel="apple-touch-icon" sizes="180x180" href="../favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../favicons/manifest.json">
+    <link rel="mask-icon" href="../favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../favicons/favicon.ico">
+    <meta name="msapplication-config" content="../favicons/browserconfig.xml">
     <meta name="theme-color" content="#2f9edb">
-
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/underscore/underscore-min.js"></script>
-    <script src="bower_components/backbone/backbone-min.js"></script>
-    <script src="bower_components/backbone.localStorage/backbone.localStorage-min.js"></script>
 </head>
 <body>
     <header>
@@ -31,6 +26,7 @@
                 <div id="user">
                 <!--display user name-->
                 </div>
+
                 <!--Registration form, it's part of the register view-->
                 <div class="regist cover-layer">
                     <div class="regist-form">
@@ -48,10 +44,13 @@
                                 <input type="password" id="password" required placeholder="6~16 numbers and letters">
                                 <p class="alert"></p>
                             </label>
-                            <p>You can close this form to skip.</p>
-                            <label for="submit">
-                                <button type="submit" id="submit">submit</button>
+                            <label for="jobTitle"><span class="label-text">job title</span>
+                                <input type="text" id="jodTitle" placeholder="your job (not required)">
+                                <p class="alert"></p>
                             </label>
+                            <progress value="0" max="3"></progress>
+                            <p>You can close this form to skip.</p>
+                                <button type="submit" id="submit">submit</button>
                         </form>
                     </div>
                 </div>
@@ -115,7 +114,6 @@
                     </label>
 
                     <button id="add">Add</button>
-
                 </form>
             </div>
         </section>
@@ -128,37 +126,41 @@
 
     <footer>
         <hr>
-        <p>View code on <a href="https://github.com/JimmyQsc/meet-up_event_planner">github</a><br>
-        Made by <a href="https://jimmyqsc.github.io" target="blank">Jimmy Q</a></p>
+        <p>
+            View code on <a href="https://github.com/JimmyQsc/meet-up_event_planner">github</a><br>
+            Made by <a href="https://jimmyqsc.github.io" target="blank">Jimmy Q</a>
+        </p>
     </footer>
 
+    <script type="text/template" id="user-template">
+        <span class="user-name"><%= name %></span>
+    </script>
 
-<script type="text/template" id="user-template">
-    <span class="user-name"><%= name %></span>
-</script>
+    <script type="text/template" id="event-template">
+        <h2><%= name %></h2>
+        <div class="content">
+            <h3><%= type %></h3>
+            <p><span class="label">time: </span><%= startTime %> - <%= endTime %></p>
+            <p><span class="label">location: </span><%= location %></p>
+            <p><span class="label">host: </span><%= host %></p>
+            <p><span class="label">guest list: </span><%= guestList %></p>
+            <p><span class="label">description: </span><%= extraInfo %></p>
+        </div>
+    </script>
 
-
-<script type="text/template" id="event-template">
-    <h2><%= name %></h2>
-    <div class="content">
-        <h3><%= type %></h3>
-        <p><span class="label">time: </span><%= startTime %> - <%= endTime %></p>
-        <p><span class="label">location: </span><%= location %></p>
-        <p><span class="label">host: </span><%= host %></p>
-        <p><span class="label">guest list: </span><%= guestList %></p>
-        <p><span class="label">description: </span><%= extraInfo %></p>
-    </div>
-</script>
-
-<script src="js/validation/validation.js"></script>
-<script src="js/models/event.js"></script>
-<script src="js/models/user.js"></script>
-<script src="js/collections/events.js"></script>
-<script src="js/views/register.js"></script>
-<script src="js/views/event.js"></script>
-<script src="js/views/mainView.js"></script>
-<script src="js/router/router.js"></script>
-<script src="js/app.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/underscore/underscore-min.js"></script>
+    <script src="../bower_components/backbone/backbone-min.js"></script>
+    <script src="../bower_components/backbone.localStorage/backbone.localStorage-min.js"></script>
+    <script src="js/validation/validation.js"></script>
+    <script src="js/models/event.js"></script>
+    <script src="js/models/user.js"></script>
+    <script src="js/collections/events.js"></script>
+    <script src="js/views/register.js"></script>
+    <script src="js/views/event.js"></script>
+    <script src="js/views/mainView.js"></script>
+    <script src="js/router/router.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 </html>

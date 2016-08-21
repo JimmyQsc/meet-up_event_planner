@@ -13,7 +13,7 @@ var uglify = require('gulp-uglify');
 
 
 gulp.task('default', ['styles'], function() {
-    gulp.watch('scss/**/*.scss', ['styles']);
+    gulp.watch('src/scss/**/*.scss', ['styles']);
 });
 
 gulp.task('dist', ['copy_html', 'copy_css', 'copy_scripts']);
@@ -36,33 +36,28 @@ gulp.task('lint', function(){
 });
 
 gulp.task('styles', function() {
-    gulp.src('scss/**/*.scss')
+    gulp.src('src/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions']
         }))
-        .pipe(gulp.dest('./css/'))
+        .pipe(gulp.dest('src/css/'))
 
 });
 
 gulp.task('copy_scripts', function() {
-    gulp.src('js/**/*')
+    gulp.src('./src/js/**/*')
         .pipe(uglify())
         .pipe(gulp.dest('./dist/js/'));
 });
 
 gulp.task('copy_css', function() {
-    gulp.src('css/*.css')
+    gulp.src('./src/css/*.css')
         .pipe(cleanCSS())
         .pipe(gulp.dest('./dist/css/'));
 });
 
 gulp.task('copy_html', function() {
-    gulp.src('./*.html')
+    gulp.src('./src/*.html')
         .pipe(gulp.dest('./dist/'));
 });
-
-// gulp.task('copy_libs', function() {
-//     gulp.src('./bower_components/**/*.js')
-//         .pipe(gulp.dest('./dist/js/libs/'));
-// })

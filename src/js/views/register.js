@@ -6,6 +6,7 @@ app.RegisterView = Backbone.View.extend({
     events: {
         'click #regist-btn': 'showRegist',
         'submit #registration': 'saveUser',
+        'change input': 'updateProgress'
     },
 
     //template for the user
@@ -18,26 +19,25 @@ app.RegisterView = Backbone.View.extend({
 
         //cache user registration form
         this.form = $('#registration');
-        this.nameInput = $('#name');
-        this.emailInput = $('#email');
-        this.pwdInput = $('#password');
         this.submitBtn = $('#submit');
+        this.$progress = $('progress');
+        this.formProgress = 0;
 
-        //set validator for diffrent input element
-        this.nameInput.validator = new app.CustomValidator(this.nameInput);
+        this.sNameInput = new SuperInput($('#name'));
         //set requirements for element
-        this.nameInput.validator.requirements = [app.FormErrorChecker.required, app.FormErrorChecker.nameWithSpace];
+        this.sNameInput.requirements = [app.FormErrorChecker.required, app.FormErrorChecker.nameWithSpace];
 
-        this.emailInput.validator = new app.CustomValidator(this.emailInput);
-        this.emailInput.validator.requirements = [app.FormErrorChecker.required, app.FormErrorChecker.validEmail];
+        this.sEmailInput = new SuperInput($('#email'));
+        this.sEmailInput.requirements = [app.FormErrorChecker.required, app.FormErrorChecker.validEmail];
 
-        this.pwdInput.validator = new app.CustomValidator(this.pwdInput);
-        this.pwdInput.validator.requirements = [app.FormErrorChecker.required, app.FormErrorChecker.minLength, app.FormErrorChecker.maxLength, app.FormErrorChecker.alphaNumeric, app.FormErrorChecker.hasNumber, app.FormErrorChecker.hasLetter];
+        this.sPwdInput = new SuperInput($('#password'));
+        this.sPwdInput.requirements = [app.FormErrorChecker.required, app.FormErrorChecker.minLength, app.FormErrorChecker.maxLength, app.FormErrorChecker.alphaNumeric, app.FormErrorChecker.hasNumber, app.FormErrorChecker.hasLetter];
 
-        this.formInputs = [this.nameInput, this.emailInput, this.pwdInput];
+        this.formInputs = [this.sNameInput, this.sEmailInput, this.sPwdInput];
 
-        //validate inputs whenever a change event is triggered
-        validateOnEdit(this.formInputs);
+        this.sNameInput.checkOnEdit();
+        this.sEmailInput.checkOnEdit();
+        this.sPwdInput.checkOnEdit();
 
         //close the form when user click outside the form or user clicks the close button
         $('.regist-form').click(function(e) {
@@ -76,10 +76,19 @@ app.RegisterView = Backbone.View.extend({
     //save user data
     saveUser: function() {
         this.model.save({
-            userName: this.nameInput.val(),
-            userEmail: this.emailInput.val(),
-            userPwd: this.pwdInput.val(),
+            userName: this.sNameInput.getInputValue(),
+            userEmail: this.sEmailInput.getInputValue(),
+            userPwd: this.sPwdInput.getInputValue(),
             login: true
         });
+    },
+
+    updateProgress: function() {
+        this.formProgress = 0;
+        _.each(this.formInputs, function(input) {
+            if(input.isValid)
+                this.formProgress++;
+        }, this);
+        this.$progress.val(this.formProgress);
     }
 });
