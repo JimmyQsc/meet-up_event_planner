@@ -48,7 +48,7 @@
                                 <input type="text" id="jodTitle" placeholder="your job (not required)">
                                 <p class="alert"></p>
                             </label>
-                            <progress value="0" max="3"></progress>
+                            <progress id="r-f-p" value="0" max="3"></progress>
                             <p>You can close this form to skip.</p>
                                 <button type="submit" id="submit">submit</button>
                         </form>
@@ -89,6 +89,7 @@
                     </label>
                     <label for="event-host"><span class="label-text">Host:</span>
                         <input type="text" id="event-host" placeholder="Host" required>
+                        <p class="alert"></p>
                     </label>
                     <label for="start-time"><span class="label-text">Start time:</span>
                         <input type="datetime-local" id="start-time" required>
@@ -96,23 +97,23 @@
                     </label>
                     <label for="end-time"><span class="label-text">End time:</span>
                         <input type="datetime-local" id="end-time" required>
+                        <p class="alert"></p>
                     </label>
                     <label for="event-location"><span class="label-text">Event location:</span>
                         <input type="address" id="event-location" required placeholder="Event location">
                         <p class="alert"></p>
                     </label>
                     <label for="guest-list"><span class="label-text">Guest list:</span>
-                        <textarea type="textarea" id="guest-list" placeholder="Names Separate by ','" required>
-                        </textarea>
+                        <textarea type="textarea" id="guest-list" placeholder="Names of your guests" required></textarea>
+                        <p class="alert"></p>
                     </label>
                     <label for="extra-info"><span class="label-text">Additional info:</span>
-                        <textarea type="textarea" id="extra-info" placeholder="Additional information">
-                        </textarea>
+                        <textarea type="textarea" id="extra-info" placeholder="Additional information"></textarea>
                     </label>
                     <label for="event-color"><span class="label-text">Choose a color for the event</span>
                         <input id="event-color" type="color"></input>
                     </label>
-
+                    <progress id="e-f-p" value="0" max="7"></progress>
                     <button id="add">Add</button>
                 </form>
             </div>

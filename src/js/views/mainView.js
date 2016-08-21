@@ -6,7 +6,8 @@ var app = app || {};
 
         events: {
             'click #add': 'validate',
-            'submit #add-event': 'createEvent'
+            'submit #add-event': 'createEvent',
+            'change input, textarea': 'progress'
         },
 
         initialize: function() {
@@ -14,25 +15,37 @@ var app = app || {};
             this.$list = $('.event-list');
             this.$eventsView = $('.events-view');
             this.$eventForm = $('.event-form');
+            this.$progress = $('#e-f-p');
+
+            this.formProgress = 1;
             //all the inputs
-            this.eventHost = $('#event-host');
-            this.endTime = $('#end-time');
-            this.guestList = $('#guest-list');
-            this.extraInfo = $('#extra-info');
-            this.eventColor = $('#event-color');
+            this.eventHost = new SuperInput($('#event-host'));
+            this.endTime = new SuperInput($('#end-time'));
+            this.guestList = new SuperInput($('#guest-list'));
+            this.extraInfo = new SuperInput($('#extra-info'));
+            this.eventColor = new SuperInput($('#event-color'));
 
-            this.eventName =  $('#event-name');
-            this.eventType = $('#event-type');
-            this.startTime = $('#start-time');
-            this.eventLocation = $('#event-location');
-
-
+            this.eventName =  new SuperInput($('#event-name'));
+            this.eventType = new SuperInput($('#event-type'));
+            this.startTime = new SuperInput($('#start-time'));
+            this.eventLocation = new SuperInput($('#event-location'));
+            this.requiredInputs = [this.eventName, this.eventType, this.eventHost, this.eventLocation, this.guestList, this.startTime, this.endTime];
+            //for every required inputs add required to their requirements
+            _.each(this.requiredInputs, function(input) {
+                input.requirements.push(app.FormErrorChecker.required);
+                input.checkOnChange();
+            });
+            //these two need to have a time check
+            this.startTime.requirements.push(app.FormErrorChecker.laterThan(new Date().toISOString()));
+            this.endTime.requirements.push(app.FormErrorChecker.laterThan(this.startTime.getInputValue()));
+            
 
             this.$form = $('#add-event');
             //set the default color
             $('#event-color').val('#FECE00');
 
             this.appHeight = this.$eventForm[0].offsetHeight;
+
             //listen to collection event
             this.listenTo(app.events, 'add', this.appendItem);
             //fetch data from localstorage
@@ -60,16 +73,17 @@ var app = app || {};
         createEvent: function() {
             //create an event model
             app.events.create({
-                name: this.eventName.val(),
-                type: this.eventType.val(),
-                host: this.eventHost.val(),
-                startTime: this.startTime.val(),
-                endTime: this.endTime.val(),
-                guestList: this.eventLocation.val(),
-                location: this.guestList.val(),
-                extraInfo: this.extraInfo.val(),
-                color: this.eventColor.val()
+                name: this.eventName.getInputValue(),
+                type: this.eventType.getInputValue(),
+                host: this.eventHost.getInputValue(),
+                startTime: this.startTime.getInputValue(),
+                endTime: this.endTime.getInputValue(),
+                guestList: this.eventLocation.getInputValue(),
+                location: this.guestList.getInputValue(),
+                extraInfo: this.extraInfo.getInputValue(),
+                color: this.eventColor.getInputValue()
             });
+            
             this.resetForm();
             //prevent reload page
             return false;
@@ -78,7 +92,18 @@ var app = app || {};
         //reset the form
         resetForm: function() {
             this.$form[0].reset();
+            this.$progress.val(0);
             $('#event-color').val('#FECE00');
+        },
+
+        //update the progress bar
+        progress: function() {
+            this.formProgress = 0;
+            _.each(this.requiredInputs, function(input) {
+                if(input.isValid)
+                    this.formProgress++;
+            }, this);
+            this.$progress.val(this.formProgress);
         }
     });
 })(jQuery);
