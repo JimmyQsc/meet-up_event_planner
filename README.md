@@ -32,4 +32,4 @@
 
 ## Issues
 
-* When using on mobile, keyboard would block the `password` input box.
+* **Fixed.**  ~~When using on mobile, keyboard would block the `password` input box.~~
