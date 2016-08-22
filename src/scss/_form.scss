@@ -22,14 +22,14 @@ button {
 progress {
     appearance: none;
     border: none;
-    width: 80%; 
+    width: 80%;
     height: 20px;
     background-color: whiteSmoke;
     border-radius: 3px;
     box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
-    color: royalblue; 
+    color: royalblue;
     position: relative;
-    margin: 0.8em 0; 
+    margin: 0.8em 0;
 }
 
 progress[value]::-webkit-progress-bar {
@@ -40,15 +40,15 @@ progress[value]::-webkit-progress-bar {
 
 progress[value]::-webkit-progress-value {
   background-image:
-	   -webkit-linear-gradient(-45deg, 
-	                           transparent 33%, rgba(0, 0, 0, .1) 33%, 
+	   -webkit-linear-gradient(-45deg,
+	                           transparent 33%, rgba(0, 0, 0, .1) 33%,
 	                           rgba(0,0, 0, .1) 66%, transparent 66%),
-	   -webkit-linear-gradient(top, 
-	                           rgba(255, 255, 255, .25), 
+	   -webkit-linear-gradient(top,
+	                           rgba(255, 255, 255, .25),
 	                           rgba(0, 0, 0, .25)),
 	   -webkit-linear-gradient(left, #09c, #f44);
 
-    border-radius: 2px; 
+    border-radius: 2px;
     background-size: 35px 20px, 100% 100%, 100% 100%;
 }
 
@@ -107,10 +107,11 @@ progress[value]::-webkit-progress-value {
 
     .close-form {
         position: absolute;
-        top: 0.5em;
-        right: 0.5em;
+        top: 0.3em;
+        right: 0.3em;
         padding: 0.2em;
         margin:0;
+        font-size:20px;
         box-shadow: none;
         &:active {
         background: $main-color;
@@ -163,11 +164,11 @@ progress[value]::-webkit-progress-value {
 
     progress[value]::-webkit-progress-value {
         background-image:
-            -webkit-linear-gradient(-45deg, 
-                                    transparent 33%, rgba(0, 0, 0, .1) 33%, 
+            -webkit-linear-gradient(-45deg,
+                                    transparent 33%, rgba(0, 0, 0, .1) 33%,
                                     rgba(0,0, 0, .1) 66%, transparent 66%),
-            -webkit-linear-gradient(top, 
-                                    rgba(255, 255, 255, .25), 
+            -webkit-linear-gradient(top,
+                                    rgba(255, 255, 255, .25),
                                     rgba(0, 0, 0, .25)),
             -webkit-linear-gradient(left, #4ABDAC, #FF471C);
 }

@@ -19,7 +19,7 @@ var app = app || {};
         hasNumber: 'This field must contain number.',
         hasLetter: 'This field must contain letter.',
         nameWithSpace: 'This field must only contain alphabetical characters and space between.',
-        laterThan: 'This should happen at a later time'
+        laterThanNow: 'This should happen at a later time'
     };
 
     //methods to validate the input value
@@ -46,7 +46,7 @@ var app = app || {};
                     return app.FormErrorMessages.minLength.replace('%s', length);
                 }
                 return '';
-            };   
+            };
         },
         maxLength: function(length) {
             return function(value) {
@@ -86,16 +86,14 @@ var app = app || {};
             }
             return '';
         },
-        laterThan: function(dateTime) {
-            return function(value) {
-                if (value) {
-                    if (Date.parse(value) < Date.parse(dateTime)) {
-                        return app.FormErrorMessages.laterThan;
-                    }
-                    return '';
+        laterThanNow: function(value) {
+            if (value) {
+                if (Date.parse(value) < new Date().getTime()) {
+                    return app.FormErrorMessages.laterThanNow;
                 }
-            };
-        } 
+                return '';
+            }
+        }
     };
 })();
 

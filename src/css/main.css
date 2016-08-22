@@ -578,10 +578,11 @@ progress[value]::-webkit-progress-value {
     font-size: 12px; }
   .regist-form .close-form {
     position: absolute;
-    top: 0.5em;
-    right: 0.5em;
+    top: 0.3em;
+    right: 0.3em;
     padding: 0.2em;
     margin: 0;
+    font-size: 20px;
     box-shadow: none; }
     .regist-form .close-form:active {
       background: #0376b5; }

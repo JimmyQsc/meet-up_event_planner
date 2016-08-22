@@ -13,17 +13,31 @@ var rename = require('gulp-rename');
 
 var reload      = browserSync.reload;
 
-gulp.task('default', ['styles'], function() {
+gulp.task('serve', ['styles'], function() {
     gulp.watch('src/scss/**/*.scss', ['styles']);
 
     browserSync.init({
         server: {
-            baseDir: "./"
+            baseDir: './src/',
+            routes: {
+            '/bower_components': 'bower_components'
+        }
         }
     });
 
-    gulp.watch("src/css/*.css").on("change", reload);
-    gulp.watch("src/js/**/*.js").on("change", reload);
+    gulp.watch('src/css/*.css').on('change', reload);
+    gulp.watch('src/js/**/*.js').on('change', reload);
+});
+
+gulp.task('serve:dist', function() {
+    browserSync.init({
+        server: {
+            baseDir: './dist/',
+            routes: {
+            '/bower_components': 'bower_components'
+        }
+        }
+    });
 });
 
 gulp.task('dist', ['copy_html', 'copy_css', 'copy_scripts']);

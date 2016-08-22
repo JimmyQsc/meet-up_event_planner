@@ -17,6 +17,7 @@ var app = app || {};
             $('.events-view').removeClass('open');
             $('.addEvent').addClass('current');
             $('.listEvent').removeClass('current');
+            $('#event-name').focus();
         },
 
         listEvents: function() {

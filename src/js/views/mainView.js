@@ -36,17 +36,17 @@ var app = app || {};
                 input.checkOnChange();
             });
             //these two need to have a time check
-            this.startTime.requirements.push(app.FormErrorChecker.laterThan(new Date().toISOString()));
-            this.endTime.requirements.push(function(value) {
+            this.startTime.requirements.push(app.FormErrorChecker.laterThanNow);
+            this.endTime.requirements.push(app.FormErrorChecker.laterThanNow, function(value) {
                 var startTime = $('#start-time').val();
                 if (value) {
-                    if (Date.parse(value) < Date.parse(startTime)) {
-                        return app.FormErrorMessages.laterThan;
+                    if (Date.parse(value) <= Date.parse(startTime)) {
+                        return 'This should happen later than start time';
                     }
                     return '';
                 }
             });
-            
+
 
             this.$form = $('#add-event');
             //set the default color
@@ -91,7 +91,7 @@ var app = app || {};
                 extraInfo: this.extraInfo.getInputValue(),
                 color: this.eventColor.getInputValue()
             });
-            
+
             this.resetForm();
             //prevent reload page
             return false;
