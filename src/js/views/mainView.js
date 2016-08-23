@@ -39,7 +39,7 @@ var app = app || {};
             this.startTime.requirements.push(app.FormErrorChecker.laterThanNow);
             this.endTime.requirements.push(app.FormErrorChecker.laterThanNow, function(value) {
                 var startTime = $('#start-time').val();
-                if (value) {
+                if (value && startTime) {
                     if (Date.parse(value) <= Date.parse(startTime)) {
                         return 'This should happen later than start time';
                     }
