@@ -8,7 +8,7 @@
 
 ## How to use
 
-1. Open index.html to run the app.
+1. Open index.html in `src/` or `/dist` to run the app.
 2. first you will see a registration form, you can fill the form to register or skip, either way you could use the app.
 3. After you register or close the registration form, you could fill in the form in the `add` pane to add an event.
   * In the add event form, the `event name`, `event type`, `start time` and `location` is required.
